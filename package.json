@@ -1,6 +1,6 @@
 {
     "name": "@navikt/sif-common-core",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "private": false,
     "scripts": {
         "dev": "craco start",
@@ -143,10 +143,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/navikt/sif-common-core.git"
+        "url": "git+https://github.com/navikt/sif-common-core.git"
     },
-    "author": "",
-    "license": "ISC",
+    "author": "navikt",
+    "license": "MIT",
     "bugs": {
         "url": "https://github.com/navikt/sif-common-core/issues"
     },
