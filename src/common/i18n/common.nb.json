@@ -1,0 +1,22 @@
+{
+    "Ja": "Ja",
+    "Nei": "Nei",
+    "VetIkke": "Jeg er usikker",
+
+    "hjelpetekst.skjul": "Lukk hjelpetekst",
+    "hjelpetekst.vis": "Vis hjelpetekst",
+
+    "locale.nb": "Bokmål - norsk",
+    "locale.nn": "Nynorsk - norsk",
+    "locale.en": "Nynorsk - norsk",
+
+    "formikForm.submitButton.label": "Ok",
+    "formikForm.cancelButton.label": "Avbryt",
+
+    "formikValidationErrorSummary.tittel": "Du må rette opp i følgende feil:",
+
+    "dataRangeValidation.form.validation.required": "Feltet er påkrevd",
+    "dataRangeValidation.form.validation.dateOutsideRange": "Første gyldige dato er {fom}, og siste gyldige dato er {tom}",
+    "dataRangeValidation.form.validation.fromDateAfterToDate": "Fra-dato må være lik eller før til-dato",
+    "dataRangeValidation.form.validation.toDateBeforeFromDate": "Til-dato må være lik eller etter fra-dato"
+}
