@@ -1,7 +1,8 @@
 import moment from 'moment';
 import {
-    date3YearsAgo, DateRange, dateRangesCollide, dateRangesExceedsRange, formatDateToApiFormat,
-    isMoreThan3YearsAgo, prettifyDate
+    date3YearsAgo, DateRange, dateRangesCollide, dateRangesExceedsRange,
+    dateRangesHasFromDateEqualPreviousRangeToDate, formatDateToApiFormat, isMoreThan3YearsAgo,
+    prettifyDate
 } from '../dateUtils';
 
 const mockedDate = moment('20111031', 'YYYYMMDD').toDate();
@@ -132,6 +133,49 @@ describe('dateUtils', () => {
                     range
                 )
             ).toBeTruthy();
+        });
+    });
+
+    describe('dateRangesHasFromDateEqualPreviousRangeToDate', () => {
+        const validRanges: DateRange[] = [
+            {
+                from: moment()
+                    .add(5, 'weeks')
+                    .toDate(),
+                to: moment()
+                    .add(6, 'week')
+                    .toDate()
+            },
+            {
+                from: moment().toDate(),
+                to: moment()
+                    .add(1, 'week')
+                    .toDate()
+            },
+            {
+                from: moment()
+                    .add(2, 'weeks')
+                    .toDate(),
+                to: moment()
+                    .add(3, 'week')
+                    .toDate()
+            }
+        ];
+
+        it('is should return false when a dateRange does not have from-date equal another dateRanges to-date', () => {
+            expect(dateRangesHasFromDateEqualPreviousRangeToDate(validRanges)).toBeFalsy();
+        });
+
+        it('is should return true if a dateRange starts on det end-date of another dateRange', () => {
+            const range: DateRange = { ...validRanges[2] };
+            const invalidRange = {
+                from: moment(range.to).toDate(),
+                to: moment(range.to)
+                    .add(1, 'day')
+                    .toDate()
+            };
+
+            expect(dateRangesHasFromDateEqualPreviousRangeToDate([...validRanges, invalidRange])).toBeTruthy();
         });
     });
 });

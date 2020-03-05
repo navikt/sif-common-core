@@ -73,7 +73,7 @@ export interface OpenDateRange {
     to?: Date;
 }
 
-export const dateRangesCollide = (ranges: DateRange[]): boolean => {
+export const dateRangesCollide = (ranges: DateRange[], fromDateCannotBeSameAsPreviousToDate?: boolean): boolean => {
     if (ranges.length > 0) {
         const sortedDates = ranges.sort(sortDateRange);
         const hasOverlap = ranges.find((d, idx) => {
@@ -83,6 +83,20 @@ export const dateRangesCollide = (ranges: DateRange[]): boolean => {
             return false;
         });
         return hasOverlap !== undefined;
+    }
+    return false;
+};
+
+export const dateRangesHasFromDateEqualPreviousRangeToDate = (ranges: DateRange[]): boolean => {
+    if (ranges.length > 0) {
+        const sortedDates = ranges.sort(sortDateRange);
+        const hasStartDateEqualPreviousRangeToDate = ranges.find((d, idx) => {
+            if (idx > 0) {
+                return moment(d.from).isSame(sortedDates[idx - 1].to, 'day');
+            }
+            return false;
+        });
+        return hasStartDateEqualPreviousRangeToDate !== undefined;
     }
     return false;
 };
