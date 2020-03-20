@@ -73,12 +73,16 @@ export interface OpenDateRange {
     to?: Date;
 }
 
-export const dateRangesCollide = (ranges: DateRange[], fromDateCannotBeSameAsPreviousToDate?: boolean): boolean => {
+export const dateRangesCollide = (ranges: DateRange[], fromDateCanBeSameAsPreviousToDate?: boolean): boolean => {
     if (ranges.length > 0) {
         const sortedDates = ranges.sort(sortDateRange);
         const hasOverlap = ranges.find((d, idx) => {
             if (idx < sortedDates.length - 1) {
-                return moment(d.to).isAfter(sortedDates[idx + 1].from);
+                if (fromDateCanBeSameAsPreviousToDate) {
+                    return moment(d.to).isAfter(sortedDates[idx + 1].from);
+                } else {
+                    return moment(d.to).isSameOrAfter(sortedDates[idx + 1].from);
+                }
             }
             return false;
         });

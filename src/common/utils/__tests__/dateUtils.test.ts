@@ -64,7 +64,7 @@ describe('dateUtils', () => {
 
         it('should detect overlap when it exists', () => {
             const ranges: DateRange[] = [
-                ...validRanges,
+                // ...validRanges,
                 {
                     from: moment()
                         .add(1, 'day')
@@ -72,9 +72,17 @@ describe('dateUtils', () => {
                     to: moment()
                         .add(1, 'week')
                         .toDate()
+                },
+                {
+                    from: moment()
+                        .add(1, 'week')
+                        .toDate(),
+                    to: moment()
+                        .add(2, 'week')
+                        .toDate()
                 }
             ];
-            expect(dateRangesCollide(ranges)).toBeTruthy();
+            expect(dateRangesCollide(ranges, false)).toBeTruthy();
         });
     });
 
