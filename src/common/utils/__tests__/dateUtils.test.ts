@@ -82,7 +82,7 @@ describe('dateUtils', () => {
                         .toDate()
                 }
             ];
-            expect(dateRangesCollide(ranges, false)).toBeTruthy();
+            expect(dateRangesCollide(ranges)).toBeTruthy();
         });
     });
 
