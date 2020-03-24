@@ -91,6 +91,15 @@ export const dateRangesCollide = (ranges: DateRange[], fromDateCanBeSameAsPrevio
     return false;
 };
 
+export const datesCollideWithDateRanges = (dates: Date[], ranges: DateRange[]): boolean => {
+    if (ranges.length > 0 && dates.length > 0) {
+        return dates.some((d) => {
+            return ranges.some((range) => moment(d).isSameOrAfter(range.from) && moment(d).isSameOrBefore(range.to));
+        });
+    }
+    return false;
+};
+
 export const dateRangesHasFromDateEqualPreviousRangeToDate = (ranges: DateRange[]): boolean => {
     if (ranges.length > 0) {
         const sortedDates = ranges.sort(sortDateRange);

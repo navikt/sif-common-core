@@ -1,8 +1,8 @@
 import moment from 'moment';
 import {
     date3YearsAgo, DateRange, dateRangesCollide, dateRangesExceedsRange,
-    dateRangesHasFromDateEqualPreviousRangeToDate, formatDateToApiFormat, isMoreThan3YearsAgo,
-    prettifyDate
+    dateRangesHasFromDateEqualPreviousRangeToDate, datesCollideWithDateRanges,
+    formatDateToApiFormat, isMoreThan3YearsAgo, prettifyDate
 } from '../dateUtils';
 
 const mockedDate = moment('20111031', 'YYYYMMDD').toDate();
@@ -184,6 +184,38 @@ describe('dateUtils', () => {
             };
 
             expect(dateRangesHasFromDateEqualPreviousRangeToDate([...validRanges, invalidRange])).toBeTruthy();
+        });
+    });
+
+    describe('datesCollideWithDateRanges', () => {
+        const date1 = moment()
+            .add(1, 'day')
+            .toDate();
+        const date2 = moment()
+            .add(2, 'day')
+            .toDate();
+        const date3 = moment()
+            .add(3, 'day')
+            .toDate();
+
+        const dateRanges: DateRange[] = [
+            {
+                from: date1,
+                to: date2
+            }
+        ];
+
+        it('should return false if dates or dateRanges is empty', () => {
+            expect(datesCollideWithDateRanges([], [])).toBeFalsy();
+            expect(datesCollideWithDateRanges([new Date()], [])).toBeFalsy();
+            expect(datesCollideWithDateRanges([], [{ from: new Date(), to: new Date() }])).toBeFalsy();
+        });
+
+        it('should return false if all dates are outside the dateRanges', () => {
+            expect(datesCollideWithDateRanges([date3], dateRanges)).toBeFalsy();
+        });
+        it('should return true if one of the dates are within one of the dateRanges', () => {
+            expect(datesCollideWithDateRanges([date2], dateRanges)).toBeTruthy();
         });
     });
 });
