@@ -42,6 +42,15 @@ export const isValidTime = (time: Partial<Time> | undefined): time is Time => {
     );
 };
 
-export const timeToString = (time: Time, intl: IntlShape): string => {
+/**
+ *
+ * @param time Time
+ * @param intl intlShape
+ * @param hideZeroMinutes do not print minutes if 0 minutes
+ */
+export const timeToString = (time: Time, intl: IntlShape, hideZeroMinutes?: boolean): string => {
+    if (hideZeroMinutes && time.minutes === 0) {
+        return intlHelper(intl, 'timer', { timer: time.hours });
+    }
     return intlHelper(intl, 'timerOgMinutter', { timer: time.hours, minutter: time.minutes });
 };

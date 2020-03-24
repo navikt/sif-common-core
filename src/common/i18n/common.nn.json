@@ -14,6 +14,11 @@
     "formikForm.submitButton.label": "Ok",
     "formikForm.cancelButton.label": "Avbryt",
 
+    "timer": "{timer, plural, one {# time} other {# timer}}",
+    "minutter": "{minutter, plural, one {# minutt} other {# minutter}}",
+    "timerOgMinutter": "{timer, plural, one {# time} other {# timer}} og {minutter, plural, one {# minutt} other {# minutter}}",
+    "dager": "{dager, plural, one {# dag} other {# dager}}",
+
     "dataRangeValidation.form.validation.required": "Feltet er påkrevd",
     "dataRangeValidation.form.validation.dateOutsideRange": "Første gyldige dato er {fom}, og siste gyldige dato er {tom}",
     "dataRangeValidation.form.validation.fromDateAfterToDate": "Fra-dato må være lik eller før til-dato",
