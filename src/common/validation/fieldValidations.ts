@@ -89,7 +89,7 @@ export const validateRequiredNumber = ({ min, max }: { min?: number; max?: numbe
     }
     if (min !== undefined && max !== undefined) {
         if (value < min || value > max) {
-            return createFieldValidationError(FieldValidationErrors.tall_ikke_innenfor_min_maks, { min, max });
+            return createFieldValidationError(FieldValidationErrors.tall_ikke_innenfor_min_maks, { min, maks: max });
         }
     }
     if (min !== undefined && value < min) {
