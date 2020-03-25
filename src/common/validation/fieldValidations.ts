@@ -8,7 +8,11 @@ export enum FieldValidationErrors {
     'påkrevd' = 'common.fieldvalidation.påkrevd',
     'fødselsnummer_11siffer' = 'common.fieldvalidation.fødselsnummer.11siffer',
     'fødselsnummer_ugyldig' = 'common.fieldvalidation.fødselsnummer.ugyldig',
-    'orgnum_ugyldig' = 'common.fieldvalidation.orgnum.ugyldig'
+    'orgnum_ugyldig' = 'common.fieldvalidation.orgnum.ugyldig',
+    'tall_ugyldig' = 'common.fieldvalidation.tall_ugyldig',
+    'tall_for_lavt' = 'common.fieldvalidation.tall_for_lavt',
+    'tall_for_høyt' = 'common.fieldvalidation.tall_for_høyt',
+    'tall_ikke_innenfor_min_maks' = 'common.fieldvalidation.tall_ikke_innenfor_min_maks'
 }
 
 export const fieldIsRequiredError = () => createFieldValidationError(FieldValidationErrors.påkrevd);
@@ -72,4 +76,27 @@ export const validateOrgNumber = (orgnum: string, isNorwegian: boolean): FieldVa
         return undefined;
     }
     return validateRequiredField(orgnum);
+};
+
+export const validateRequiredNumber = ({ min, max }: { min?: number; max?: number }) => (
+    value: number
+): FieldValidationResult => {
+    if (!hasValue(value)) {
+        return fieldIsRequiredError();
+    }
+    if (isNaN(value)) {
+        return createFieldValidationError(FieldValidationErrors.tall_ugyldig);
+    }
+    if (min !== undefined && max !== undefined) {
+        if (value < min || value > max) {
+            return createFieldValidationError(FieldValidationErrors.tall_ikke_innenfor_min_maks, { min, max });
+        }
+    }
+    if (min !== undefined && value < min) {
+        return createFieldValidationError(FieldValidationErrors.tall_for_lavt, { min });
+    }
+    if (max !== undefined && value > max) {
+        return createFieldValidationError(FieldValidationErrors.tall_for_høyt, { maks: max });
+    }
+    return undefined;
 };
