@@ -1,16 +1,12 @@
 import * as React from 'react';
 import { useIntl } from 'react-intl';
-
 import classnames from 'classnames';
-
-import { Hovedknapp, Knapp } from 'nav-frontend-knapper';
+import { Knapp } from 'nav-frontend-knapper';
 import Modal, { ModalProps } from 'nav-frontend-modal';
 import { Systemtittel } from 'nav-frontend-typografi';
-
 import bemUtils from '../../../utils/bemUtils';
 import intlHelper from '../../../utils/intlUtils';
 import Knapperad from '../../knapperad/Knapperad';
-
 import './bekreftDialog.less';
 
 export interface Props extends ModalProps {
@@ -39,10 +35,11 @@ const BekreftDialog: React.FunctionComponent<Props> = (props) => {
                     {tittel && <Systemtittel className="blokk-s">{tittel}</Systemtittel>}
                     <div className="blokk-m">{children}</div>
                     <Knapperad>
-                        <Hovedknapp onClick={() => onBekreft()} className="bekreftDialog__bekreftKnapp">
+                        <Knapp type="hoved" onClick={() => onBekreft()} className="bekreftDialog__bekreftKnapp">
                             {bekreftLabel || intlHelper(intl, 'komponent.bekreftDialog.bekreftLabel')}
-                        </Hovedknapp>
+                        </Knapp>
                         <Knapp
+                            type="flat"
                             onClick={() => (onAvbryt ? onAvbryt() : props.onRequestClose())}
                             className="bekreftDialog__avbrytKnapp">
                             {avbrytLabel || intlHelper(intl, 'komponent.bekreftDialog.avbrytLabel')}
