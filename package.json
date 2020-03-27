@@ -7,15 +7,15 @@
         "test": "jest --maxWorkers=2 --config ./jest/jest.config.js",
         "eject": "react-scripts eject",
         "build-lib": "npm-run-all clean-lib compile-lib-script copy-files-to-lib",
-        "patchit": "npm-run-all build-lib patch publish",
         "clean-lib": "rimraf ./lib",
         "compile-lib-script": "tsc -p tsconfig-build-lib.json",
         "copy-files-to-lib": "copyfiles -u 2 \"src/common/**/*.less\" lib/ && copyfiles -u 2 \"src/common/**/assets/**/*\" lib/ && copyfiles -u 2 \"src/common/**/*.json\" lib/",
         "build-dev-app": "craco build",
         "predeploy": "npm run build-dev-app",
         "deploy": "gh-pages -d build",
+        "patchit": "npm-run-all build-lib patch do-publish",
         "patch": "npm version patch",
-        "publish": "npm publish"
+        "do-publish": "npm publish"
     },
     "dependencies": {
         "@navikt/fnrvalidator": "^1.1.0",
