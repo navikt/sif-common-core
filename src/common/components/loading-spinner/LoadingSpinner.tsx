@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-import Spinner, { NavFrontendSpinnerBaseProps as LoadingSpinnerProps } from 'nav-frontend-spinner';
+import NavFrontendSpinner, { NavFrontendSpinnerBaseProps } from 'nav-frontend-spinner';
 import { Element } from 'nav-frontend-typografi';
 
 interface OwnProps {
@@ -8,12 +7,12 @@ interface OwnProps {
     blockTitle?: string;
 }
 
-const LoadingSpinner: React.FunctionComponent<OwnProps & LoadingSpinnerProps> = ({
+const LoadingSpinner: React.FunctionComponent<OwnProps & NavFrontendSpinnerBaseProps> = ({
     type,
     style = 'inline',
     blockTitle
 }) => {
-    const spinner = <Spinner type={type} data-testid="spinner-element" />;
+    const spinner = <NavFrontendSpinner type={type} data-testid="spinner-element" />;
     if (style === 'inline') {
         return spinner;
     }
