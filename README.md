@@ -1,6 +1,6 @@
-# sif-common
+# sif-common-core
 
-Felleskomponenter for sykdom i familien søknadsskjema
+Basiskomponenter for bruk av applikasjoner hos team brukerdialog i sykdom-i-familien
 
 # Release ny versjon til npmjs
 
@@ -15,12 +15,4 @@ VELG EN AV DISSE:
 - npm version major -m "Upgrade to %s"
 
 npm publish
-```
-
-# Kjøre SIF-common guide
-
-Starter guiden som viser noen av komponentene som er i biblioteket
-
-```
-npm run dev
 ```
