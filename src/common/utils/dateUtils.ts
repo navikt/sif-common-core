@@ -10,7 +10,8 @@ export const formatDateToApiFormat = (date: Date): ApiStringDate => {
 };
 export const prettifyDate = (date: Date): string => moment(date).format(prettyDateFormat);
 export const prettifyDateExtended = (date: Date) => moment(date).format(prettyDateFormatExtended);
-export const apiStringDateToDate = (date: ApiStringDate): Date => moment(date, apiDateFormat).toDate();
+
+export const apiStringDateToDate = (date: ApiStringDate): Date => moment.utc(date, apiDateFormat).toDate();
 
 export const isMoreThan3YearsAgo = (date: Date) => moment(date).isBefore(date3YearsAgo);
 
