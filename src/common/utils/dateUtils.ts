@@ -1,7 +1,6 @@
 import moment from 'moment';
-import { ApiStringDate } from '../types/ApiStringDate';
+import { ApiStringDate, apiDateFormat } from '../types/ApiStringDate';
 
-const apiDateFormat = 'YYYY-MM-DD';
 const prettyDateFormat = 'DD.MM.YYYY';
 const prettyDateFormatExtended = 'DD. MMM YYYY';
 
@@ -11,42 +10,25 @@ export const formatDateToApiFormat = (date: Date): ApiStringDate => {
 };
 export const prettifyDate = (date: Date): string => moment(date).format(prettyDateFormat);
 export const prettifyDateExtended = (date: Date) => moment(date).format(prettyDateFormatExtended);
-export const apiStringDateToDate = (date: ApiStringDate): Date => moment(date, apiDateFormat).toDate();
+
+export const apiStringDateToDate = (date: ApiStringDate): Date => moment.utc(date, apiDateFormat).toDate();
 
 export const isMoreThan3YearsAgo = (date: Date) => moment(date).isBefore(date3YearsAgo);
 
 export const dateToISOFormattedDateString = (date?: Date) =>
     date ? moment.utc(date).format(apiDateFormat) : undefined;
 
-export const date10MonthsAgo = moment()
-    .subtract(10, 'months')
-    .startOf('day')
-    .toDate();
+export const date10MonthsAgo = moment().subtract(10, 'months').startOf('day').toDate();
 
-export const date1YearAgo = moment()
-    .subtract(1, 'years')
-    .startOf('day')
-    .toDate();
+export const date1YearAgo = moment().subtract(1, 'years').startOf('day').toDate();
 
-export const date4YearsAgo = moment()
-    .subtract(4, 'years')
-    .startOf('day')
-    .toDate();
+export const date4YearsAgo = moment().subtract(4, 'years').startOf('day').toDate();
 
-export const date3YearsAgo = moment()
-    .subtract(3, 'years')
-    .startOf('day')
-    .toDate();
+export const date3YearsAgo = moment().subtract(3, 'years').startOf('day').toDate();
 
-export const date4WeeksAgo = moment()
-    .subtract(4, 'weeks')
-    .startOf('day')
-    .toDate();
+export const date4WeeksAgo = moment().subtract(4, 'weeks').startOf('day').toDate();
 
-export const date1YearFromNow = moment()
-    .add(1, 'years')
-    .endOf('day')
-    .toDate();
+export const date1YearFromNow = moment().add(1, 'years').endOf('day').toDate();
 
 export const dateToday = moment().toDate();
 
