@@ -15,7 +15,8 @@
         "patch": "npm version patch",
         "patchit": "npm-run-all build-lib patch do-publish",
         "predeploy": "npm run build-dev-app",
-        "test": "jest --maxWorkers=2 --config ./jest/jest.config.js"
+        "test": "jest --maxWorkers=2 --config ./jest/jest.config.js",
+        "commit": "git-cz"
     },
     "dependencies": {
         "@navikt/fnrvalidator": "^1.1.0",
@@ -116,6 +117,7 @@
         "copyfiles": "^2.2.0",
         "core-js": "^3.6.4",
         "craco-less": "^1.15.0",
+        "cz-conventional-changelog": "^3.1.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
         "formik": "^2.1.4",
@@ -147,5 +149,10 @@
     "bugs": {
         "url": "https://github.com/navikt/sif-common-core/issues"
     },
-    "homepage": "https://navikt.github.io/sif-common-core"
+    "homepage": "https://navikt.github.io/sif-common-core",
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
 }
