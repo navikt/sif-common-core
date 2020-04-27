@@ -6,15 +6,6 @@ import PictureScanningGuide from '../../common/components/picture-scanning-guide
 const PictureScanningGuideView: React.FC = () => {
     return (
         <div>
-            Generelt Dokument
-            <FormBlock>
-                <HelperTextPanel>
-                    <PictureScanningGuide type='dokument'/>
-                </HelperTextPanel>
-            </FormBlock>
-
-            <br/>
-            Legeerklæring
             <FormBlock>
                 <HelperTextPanel>
                     <PictureScanningGuide />
