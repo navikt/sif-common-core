@@ -1,7 +1,7 @@
 {
   "psg.dokument.innholdstittel": "Last opp bilete av dokumentet",
   "psg.dokument.section1.tittel": "Slik tek du eit godt bilete:",
-  "psg.dokument.section1.liste": "<li>Hald mobilen eller kameraet direkte over dokumentet.</li><li>Legeerklæringa skal fylle heile biletet. Biletet skal <i>ikkje</i> innehalde annan dokumentasjon eller gjenstandar.</li><li>Biletet må innehalde all tekst i legerklæringa. Dersom dokumentet er skriven på meir enn éi side, bør du laste opp fleire bilete.</li>",
+  "psg.dokument.section1.liste": "<li>Hald mobilen eller kameraet direkte over dokumentet.</li><li>Legeerklæringa skal fylle heile biletet. Biletet skal <i>ikkje</i> innehalde annan dokumentasjon eller gjenstandar.</li><li>Biletet må innehalde all tekst i legeerklæringa. Dersom dokumentet er skriven på meir enn éi side, bør du laste opp fleire bilete.</li>",
   "psg.dokument.section2.tittel": "Etter at du har teke biletet, sjekk følgjande før du lastar opp:",
   "psg.dokument.section2.liste": "<li>Dokumentet har rett retning.</li><li>Teksten til dokumentet er godt leseleg.</li><li>Biletet er godt opplyst, utan skuggar.</li>",
   "psg.dokument.icon.heading": "Bra og dårlige eksempler på bilder av dokument",
@@ -16,7 +16,7 @@
 
   "psg.lege-erklaering.innholdstittel": "Last opp bilete av legeerklæringa",
   "psg.lege-erklaering.section1.tittel": "Slik tek du eit godt bilete:",
-  "psg.lege-erklaering.section1.liste": "<li>Hald mobilen eller kameraet direkte over dokumentet.</li><li>Legeerklæringa skal fylle heile biletet. Biletet skal <i>ikkje</i> innehalde annan dokumentasjon eller gjenstandar.</li><li>Biletet må innehalde all tekst i legerklæringa. Dersom legeerklæringa er skriven på meir enn éi side, bør du laste opp fleire bilete.</li>",
+  "psg.lege-erklaering.section1.liste": "<li>Hald mobilen eller kameraet direkte over dokumentet.</li><li>Legeerklæringa skal fylle heile biletet. Biletet skal <i>ikkje</i> innehalde annan dokumentasjon eller gjenstandar.</li><li>Biletet må innehalde all tekst i legeerklæringa. Dersom legeerklæringa er skriven på meir enn éi side, bør du laste opp fleire bilete.</li>",
   "psg.lege-erklaering.section2.tittel": "Etter at du har teke biletet, sjekk følgjande før du lastar opp:",
   "psg.lege-erklaering.section2.liste": "<li>Legeerklæringa har rett retning.</li><li>Teksten til legeerklæringa er godt leseleg.</li><li>Biletet er godt opplyst, utan skuggar.</li>",
   "psg.lege-erklaering.icon.heading": "Bra og dårlige eksempler på bilder av legeerklæring",
