@@ -12,7 +12,8 @@ export enum FieldValidationErrors {
     'tall_ugyldig' = 'common.fieldvalidation.tall_ugyldig',
     'tall_for_lavt' = 'common.fieldvalidation.tall_for_lavt',
     'tall_for_høyt' = 'common.fieldvalidation.tall_for_høyt',
-    'tall_ikke_innenfor_min_maks' = 'common.fieldvalidation.tall_ikke_innenfor_min_maks'
+    'tall_ikke_innenfor_min_maks' = 'common.fieldvalidation.tall_ikke_innenfor_min_maks',
+    'ugyldig_telefonnummer' = 'common.fieldvalidation.ugyldig_telefonnummer',
 }
 
 export const fieldIsRequiredError = () => createFieldValidationError(FieldValidationErrors.påkrevd);
@@ -63,7 +64,7 @@ export const createFieldValidationError = <T extends string>(
     return key
         ? {
               key,
-              values
+              values,
           }
         : undefined;
 };
@@ -97,6 +98,16 @@ export const validateRequiredNumber = ({ min, max }: { min?: number; max?: numbe
     }
     if (max !== undefined && value > max) {
         return createFieldValidationError(FieldValidationErrors.tall_for_høyt, { maks: max });
+    }
+    return undefined;
+};
+
+export const validatePhoneNumber = (value: string): FieldValidationResult => {
+    if (!hasValue(value)) {
+        return fieldIsRequiredError();
+    }
+    if (value.length < 5 || value.length > 15) {
+        return createFieldValidationError(FieldValidationErrors.ugyldig_telefonnummer);
     }
     return undefined;
 };
