@@ -3,6 +3,7 @@ import { ApiStringDate, apiDateFormat } from '../types/ApiStringDate';
 
 const prettyDateFormat = 'DD.MM.YYYY';
 const prettyDateFormatExtended = 'DD. MMM YYYY';
+const prettyDateFormatFull = 'DD. MMMM YYYY';
 
 export const formatDateToApiFormat = (date: Date): ApiStringDate => {
     const apiFormattedDate = moment(date).format(apiDateFormat);
@@ -10,6 +11,7 @@ export const formatDateToApiFormat = (date: Date): ApiStringDate => {
 };
 export const prettifyDate = (date: Date): string => moment(date).format(prettyDateFormat);
 export const prettifyDateExtended = (date: Date) => moment(date).format(prettyDateFormatExtended);
+export const prettifyDateFull = (date: Date) => moment(date).format(prettyDateFormatFull);
 
 export const apiStringDateToDate = (date: ApiStringDate): Date => moment.utc(date, apiDateFormat).toDate();
 
