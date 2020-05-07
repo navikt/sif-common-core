@@ -1,5 +1,6 @@
 import React from 'react';
 import Intro from '../Intro';
+import PictureScanningGuideView from '../pages/PictureScanningGuideView';
 
 export interface RouteConfig {
     path: string;
@@ -12,6 +13,11 @@ export const routes: RouteConfig[] = [
         path: 'frontpage',
         title: 'Forside',
         renderContent: () => <Intro />
+    },
+    {
+        path: 'pictureScanningGuide',
+        title: 'Picture Scanning Guide',
+        renderContent: () => <PictureScanningGuideView />
     }
 ];
 
