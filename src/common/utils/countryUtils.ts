@@ -35,7 +35,7 @@ export const eøsAndEftaCountries = {
     DE: true,
     HU: true,
     AT: true,
-    CH: true
+    CH: true,
 };
 
 const ANTARTICA = 'AQ';
@@ -49,7 +49,9 @@ export interface Country {
 }
 
 export const countryIsMemberOfEøsOrEfta = (isoCode: string) => {
-    return eøsAndEftaCountries[isoCode] === true;
+    let isoCodeToUse = isoCode.toUpperCase();
+    isoCodeToUse = isoCodeToUse.length === 2 ? isoCodeToUse : countries.alpha3ToAlpha2(isoCodeToUse);
+    return eøsAndEftaCountries[isoCodeToUse.toUpperCase()] === true;
 };
 
 export const getCountriesForLocale = (locale: string, onlyEøsOrEftaCountries?: boolean): Country[] => {
@@ -62,7 +64,7 @@ export const getCountriesForLocale = (locale: string, onlyEøsOrEftaCountries?: 
         .sort((a: string[], b: string[]) => a[1].localeCompare(b[1], locale))
         .map((countryOptionValue: string[]) => ({
             isoCode: countryOptionValue[isoCodeIndex],
-            name: countryOptionValue[countryNameIndex]
+            name: countryOptionValue[countryNameIndex],
         }));
 };
 
