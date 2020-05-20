@@ -1,9 +1,10 @@
 import { IntlShape } from 'react-intl';
 import intlHelper from '../utils/intlUtils';
 import { IntlFieldValidationError, IntlFieldValidationResultValues } from './types';
+import { isString } from '../utils/typeGuardUtils';
 
 export const isFieldValidationError = (error: any): error is IntlFieldValidationError =>
-    typeof error === 'object' && error.key !== undefined;
+    typeof error === 'object' && error.key !== undefined && isString(error.key);
 
 export const renderFieldValidationValues = (
     intl: IntlShape,
