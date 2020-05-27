@@ -12,8 +12,8 @@ export function typedIntlHelper<Keys extends string>(intl: IntlShape) {
             return intl.formatMessage({ id }, values);
         },
         intlHtml: (id: Keys, values?: any): React.ReactNode => {
-            return intl.formatHTMLMessage({ id }, values);
-        }
+            return intl.formatMessage({ id }, values);
+        },
     };
 }
 

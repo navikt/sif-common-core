@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FormattedHTMLMessage, FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Lenke from 'nav-frontend-lenker';
 import { Systemtittel, Undertittel } from 'nav-frontend-typografi';
@@ -25,13 +25,13 @@ const PictureScanningGuide: React.FunctionComponent = () => {
             <Undertittel className={bem.element('title')}>
                 <FormattedMessage id="psg.section1.tittel" />
             </Undertittel>
-            <FormattedHTMLMessage tagName="ul" id="psg.section1.liste" />
+            <FormattedMessage tagName="ul" id="psg.section1.liste" values={{ li: (msg) => <li>{msg}</li> }} />
 
             <Undertittel className={bem.element('title')}>
                 <FormattedMessage id="psg.section2.tittel" />
             </Undertittel>
 
-            <FormattedHTMLMessage tagName="ul" id="psg.section2.liste" />
+            <FormattedMessage tagName="ul" id="psg.section2.liste" values={{ li: (msg) => <li>{msg}</li> }} />
             <div className={bem.element('examples')}>
                 <Undertittel tag="h3" className={bem.element('title')}>
                     <FormattedMessage id="psg.icon.heading" />
