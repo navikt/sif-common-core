@@ -101,7 +101,7 @@
     ],
     "devDependencies": {
         "@craco/craco": "^5.6.3",
-        "@formatjs/intl-pluralrules": "^1.5.9",
+        "@formatjs/intl-pluralrules": "^2.2.1",
         "@testing-library/jest-dom": "^5.8.0",
         "@testing-library/react": "^9.4.0",
         "@testing-library/user-event": "^8.1.0",
