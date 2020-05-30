@@ -2,8 +2,8 @@ import moment from 'moment';
 import { ApiStringDate, apiDateFormat } from '../types/ApiStringDate';
 
 const prettyDateFormat = 'DD.MM.YYYY';
-const prettyDateFormatExtended = 'DD. MMM YYYY';
-const prettyDateFormatFull = 'DD. MMMM YYYY';
+const prettyDateFormatExtended = 'D. MMM YYYY';
+const prettyDateFormatFull = 'D. MMMM YYYY';
 
 export const formatDateToApiFormat = (date: Date): ApiStringDate => {
     const apiFormattedDate = moment(date).format(apiDateFormat);
