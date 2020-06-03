@@ -17,8 +17,7 @@ export const apiStringDateToDate = (date: ApiStringDate): Date => moment.utc(dat
 
 export const isMoreThan3YearsAgo = (date: Date) => moment(date).isBefore(date3YearsAgo);
 
-export const dateToISOFormattedDateString = (date?: Date) =>
-    date ? moment.utc(date).format(apiDateFormat) : undefined;
+export const dateToISOFormattedDateString = (date?: Date) => (date ? moment(date).format(apiDateFormat) : undefined);
 
 export const date10MonthsAgo = moment().subtract(10, 'months').startOf('day').toDate();
 
