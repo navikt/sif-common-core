@@ -1,17 +1,16 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import LeftMenu from './components/left-menu/LeftMenu';
-import { getRouteConfig, RouteConfig } from './config/routeConfig';
+import { getRouteConfig } from './config/routeConfig';
 import Intro from './Intro';
 
-interface Props {}
+type Props = RouteComponentProps;
 
-const DevContent: React.FunctionComponent<Props> = (props) => {
-    const history = useHistory();
+const DevContent: React.FunctionComponent<Props> = ({ history }: Props) => {
     const {
-        location: { pathname }
+        location: { pathname },
     } = history;
-    const routeConfig: RouteConfig | undefined = getRouteConfig(pathname);
+    const routeConfig = getRouteConfig(pathname);
     return (
         <>
             <aside className="asideContent">
@@ -24,4 +23,4 @@ const DevContent: React.FunctionComponent<Props> = (props) => {
     );
 };
 
-export default DevContent;
+export default withRouter(DevContent);

@@ -12,19 +12,23 @@ export const routes: RouteConfig[] = [
     {
         path: 'frontpage',
         title: 'Forside',
-        renderContent: () => <Intro />
+        renderContent: () => <Intro />,
     },
     {
         path: 'pictureScanningGuide',
         title: 'Picture Scanning Guide',
-        renderContent: () => <PictureScanningGuideView />
-    }
+        renderContent: () => <PictureScanningGuideView />,
+    },
 ];
 
 export const getRouteConfig = (pathname: string): RouteConfig | undefined => {
-    return routes.find((f) => isActiveRoute(f.path, pathname));
+    return routes.find((f) => {
+        return isActiveRoute(f.path, pathname);
+    });
 };
 
 export const isActiveRoute = (path: string, pathname: string): boolean => {
+    console.log(path, pathname);
+
     return pathname.indexOf(path) >= 0;
 };
