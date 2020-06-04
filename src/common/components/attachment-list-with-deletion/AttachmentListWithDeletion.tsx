@@ -30,6 +30,7 @@ const AttachmentListWithDeletion: React.FunctionComponent<AttachmentListWithDele
                                 <LoadingSpinner type="XS" />
                             ) : (
                                 <DeleteButton
+                                    useTrashcan={false}
                                     ariaLabel={intlHelper(intl, 'vedleggsliste.fjernKnapp')}
                                     onClick={(e) => onRemoveAttachmentClick(attachment)}>
                                     <FormattedMessage id="vedleggsliste.fjernKnapp" />
