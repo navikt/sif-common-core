@@ -58,7 +58,7 @@ function ItemList<T>({
                                 <DeleteButton
                                     ariaLabel={`Fjern ${itemTitle}`}
                                     onClick={() => onDelete(item)}
-                                    useIcon={useTrashcan}
+                                    useTrashcan={useTrashcan}
                                 />
                             </span>
                         )}

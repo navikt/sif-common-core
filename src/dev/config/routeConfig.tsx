@@ -28,7 +28,5 @@ export const getRouteConfig = (pathname: string): RouteConfig | undefined => {
 };
 
 export const isActiveRoute = (path: string, pathname: string): boolean => {
-    console.log(path, pathname);
-
     return pathname.indexOf(path) >= 0;
 };
