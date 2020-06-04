@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Systemtittel } from 'nav-frontend-typografi';
 import LanguageToggle from '../common/components/language-toggle/LanguageToggle';
 import { Locale } from '../common/types/Locale';
@@ -28,9 +28,9 @@ const DevPage: React.FunctionComponent<Props> = ({ onChangeLocale }) => {
                 </span>
             </header>
             <div className="contentWrapper">
-                <HashRouter>
+                <BrowserRouter>
                     <DevContent />
-                </HashRouter>
+                </BrowserRouter>
             </div>
         </main>
     );

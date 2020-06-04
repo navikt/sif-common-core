@@ -10,6 +10,7 @@ import './itemList.less';
 
 interface Props<T> {
     items: T[];
+    useTrashcan?: boolean;
     getItemId: (item: T) => string | undefined;
     getItemTitle: (item: T) => string;
     labelRenderer?: (item: T, onEdit?: (item: T) => void) => React.ReactNode;
@@ -19,9 +20,19 @@ interface Props<T> {
 }
 
 const bem = bemUtils('itemList');
+
 const bemItem = bem.child('item');
 
-function ItemList<T>({ items, onDelete, onEdit, labelRenderer, iconRender, getItemId, getItemTitle }: Props<T>) {
+function ItemList<T>({
+    items,
+    onDelete,
+    onEdit,
+    labelRenderer,
+    iconRender,
+    getItemId,
+    getItemTitle,
+    useTrashcan = false,
+}: Props<T>) {
     return (
         <ol className={bem.classNames(bem.block)}>
             {items.map((item) => {
@@ -44,7 +55,11 @@ function ItemList<T>({ items, onDelete, onEdit, labelRenderer, iconRender, getIt
                         </span>
                         {onDelete && (
                             <span className={bemItem.element('delete')}>
-                                <DeleteButton ariaLabel={`Fjern ${itemTitle}`} onClick={() => onDelete(item)} />
+                                <DeleteButton
+                                    ariaLabel={`Fjern ${itemTitle}`}
+                                    onClick={() => onDelete(item)}
+                                    useTrashcan={useTrashcan}
+                                />
                             </span>
                         )}
                     </li>

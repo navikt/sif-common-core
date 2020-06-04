@@ -9,12 +9,12 @@ import UnstyledList from '../unstyled-list/UnstyledList';
 
 interface AttachmentListWithDeletionProps {
     attachments: Attachment[];
-    onRemoveAttachmentClick: (attachment: Attachment, e: React.SyntheticEvent) => void;
+    onRemoveAttachmentClick: (attachment: Attachment) => void;
 }
 
 const AttachmentListWithDeletion: React.FunctionComponent<AttachmentListWithDeletionProps> = ({
     attachments,
-    onRemoveAttachmentClick
+    onRemoveAttachmentClick,
 }) => {
     const intl = useIntl();
     return (
@@ -31,7 +31,7 @@ const AttachmentListWithDeletion: React.FunctionComponent<AttachmentListWithDele
                             ) : (
                                 <DeleteButton
                                     ariaLabel={intlHelper(intl, 'vedleggsliste.fjernKnapp')}
-                                    onClick={(e) => onRemoveAttachmentClick(attachment, e)}>
+                                    onClick={(e) => onRemoveAttachmentClick(attachment)}>
                                     <FormattedMessage id="vedleggsliste.fjernKnapp" />
                                 </DeleteButton>
                             )

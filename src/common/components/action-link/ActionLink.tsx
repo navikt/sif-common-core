@@ -5,6 +5,7 @@ import Lenke from 'nav-frontend-lenker';
 interface Props {
     className?: string;
     onClick: () => void;
+    ariaLabel?: string;
 }
 
 const stopClickEvent = (evt: React.MouseEvent<HTMLAnchorElement>) => {
@@ -12,11 +13,12 @@ const stopClickEvent = (evt: React.MouseEvent<HTMLAnchorElement>) => {
     evt.preventDefault();
 };
 
-const ActionLink: React.FunctionComponent<Props> = ({ onClick, children, className }) => {
+const ActionLink: React.FunctionComponent<Props> = ({ onClick, children, className, ariaLabel }) => {
     return (
         <Lenke
             className={className}
             href="#"
+            aria-label={ariaLabel}
             onClick={(evt) => {
                 stopClickEvent(evt);
                 onClick();

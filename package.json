@@ -1,6 +1,6 @@
 {
     "name": "@navikt/sif-common-core",
-    "version": "4.0.2",
+    "version": "4.0.3",
     "private": false,
     "scripts": {
         "build-dev-app": "craco build",
@@ -66,7 +66,7 @@
         "react-aria-menubutton": "^6.2.0",
         "react-collapse": "^5.0.1",
         "react-dom": "^16.12.0",
-        "react-intl": "^4.5.12",
+        "react-intl": "^4.6.5",
         "react-modal": "^3.10.1",
         "react-router-dom": "^5.2.0",
         "use-media": "^1.4.0"
@@ -102,7 +102,7 @@
     "devDependencies": {
         "@craco/craco": "^5.6.3",
         "@formatjs/intl-pluralrules": "^1.5.9",
-        "@testing-library/jest-dom": "^5.8.0",
+        "@testing-library/jest-dom": "^5.9.0",
         "@testing-library/react": "^9.4.0",
         "@testing-library/user-event": "^8.1.0",
         "@types/jest": "^25.2.3",
@@ -110,9 +110,9 @@
         "@types/react": "^16.9.35",
         "@types/react-dom": "^16.9.8",
         "axios": "^0.19.2",
-        "copyfiles": "^2.2.0",
+        "copyfiles": "^2.3.0",
         "core-js": "^3.6.4",
-        "craco-less": "^1.15.0",
+        "craco-less": "^1.17.0",
         "cz-conventional-changelog": "^3.2.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.2",
