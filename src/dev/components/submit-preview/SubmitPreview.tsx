@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from 'nav-frontend-paneler';
+import Panel from 'nav-frontend-paneler';
 import Box from '../../../common/components/box/Box';
 
 interface Props {
