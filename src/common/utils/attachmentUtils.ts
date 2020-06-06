@@ -2,9 +2,15 @@ import { Attachment, PersistedFile } from '../types/Attachment';
 
 export const VALID_EXTENSIONS = ['.pdf', '.jpeg', '.jpg', '.png'];
 
+export const MAX_FILESIZE_FOR_UPLOAD = 7999999;
+
 export const fileExtensionIsValid = (filename: string): boolean => {
     const ext = filename.split('.').pop();
     return VALID_EXTENSIONS.includes(`.${ext!.toLowerCase()}`);
+};
+
+export const fileSizeIsValid = (size: number): boolean => {
+    return MAX_FILESIZE_FOR_UPLOAD >= size;
 };
 
 export const isFileObject = (file: File | PersistedFile): file is File => (file as any).isPersistedFile !== true;
@@ -20,13 +26,13 @@ export const mapFileToPersistedFile = ({
     name,
     lastModified,
     type,
-    size
+    size,
 });
 
 export const getAttachmentFromFile = (file: File): Attachment => ({
     file,
     pending: false,
-    uploaded: false
+    uploaded: false,
 });
 
 export const getPendingAttachmentFromFile = (file: File): Attachment => {
@@ -38,7 +44,9 @@ export const getPendingAttachmentFromFile = (file: File): Attachment => {
 export const attachmentShouldBeProcessed = ({ pending, uploaded }: Attachment): boolean => pending && !uploaded;
 
 export const attachmentShouldBeUploaded = (attachment: Attachment): boolean =>
-    attachmentShouldBeProcessed(attachment) && fileExtensionIsValid(attachment.file.name);
+    attachmentShouldBeProcessed(attachment) &&
+    fileExtensionIsValid(attachment.file.name) &&
+    fileSizeIsValid(attachment.file.size);
 
 export const attachmentUploadHasFailed = ({ pending, uploaded, file: { name } }: Attachment): boolean =>
     (!pending && !uploaded) || !fileExtensionIsValid(name);
