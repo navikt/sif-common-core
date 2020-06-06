@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
-
-import { AlertStripeAdvarsel } from 'nav-frontend-alertstriper';
-import { fileSizeIsValid } from 'common/utils/attachmentUtils';
 import prettyBytes from 'pretty-bytes';
+import { AlertStripeAdvarsel } from 'nav-frontend-alertstriper';
+import { fileSizeIsValid } from '../../utils/attachmentUtils';
 
 interface Props {
     filesThatDidntGetUploaded: File[];
