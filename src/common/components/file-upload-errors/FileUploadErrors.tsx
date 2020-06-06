@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
-
+import prettyBytes from 'pretty-bytes';
 import { AlertStripeAdvarsel } from 'nav-frontend-alertstriper';
+import { fileSizeIsValid } from '../../utils/attachmentUtils';
 
-interface FileUploadErrorsProps {
+interface Props {
     filesThatDidntGetUploaded: File[];
 }
 
-const FileUploadErrors: React.FunctionComponent<FileUploadErrorsProps> = ({ filesThatDidntGetUploaded }) => {
+const FileUploadErrors: React.FunctionComponent<Props> = ({ filesThatDidntGetUploaded }: Props) => {
     if (filesThatDidntGetUploaded.length === 0) {
         return null;
     }
@@ -16,9 +17,19 @@ const FileUploadErrors: React.FunctionComponent<FileUploadErrorsProps> = ({ file
         <AlertStripeAdvarsel>
             <FormattedMessage id="fileUploadErrors.part1" />
             <ul>
-                {filesThatDidntGetUploaded.map(({ name }) => (
-                    <li key={name}>{name}</li>
-                ))}
+                {filesThatDidntGetUploaded.map(({ name, size, type }) => {
+                    return (
+                        <li key={name}>
+                            {name}
+                            {type}
+                            {size && !fileSizeIsValid(size) && (
+                                <div style={{ fontSize: '0.9rem' }}>
+                                    Fila er for stor ({prettyBytes(size)}). Maks filstørrelse er {prettyBytes(8000000)}.
+                                </div>
+                            )}
+                        </li>
+                    );
+                })}
             </ul>
         </AlertStripeAdvarsel>
     );
