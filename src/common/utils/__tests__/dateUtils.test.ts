@@ -1,8 +1,14 @@
 import moment from 'moment';
 import {
-    date3YearsAgo, DateRange, dateRangesCollide, dateRangesExceedsRange,
-    dateRangesHasFromDateEqualPreviousRangeToDate, datesCollideWithDateRanges,
-    formatDateToApiFormat, isMoreThan3YearsAgo, prettifyDate
+    date3YearsAgo,
+    DateRange,
+    dateRangesCollide,
+    dateRangesExceedsRange,
+    dateRangesHasFromDateEqualPreviousRangeToDate,
+    datesCollideWithDateRanges,
+    formatDateToApiFormat,
+    isMoreThan3YearsAgo,
+    prettifyDate,
 } from '../dateUtils';
 
 const mockedDate = moment('20111031', 'YYYYMMDD').toDate();
@@ -36,27 +42,17 @@ describe('dateUtils', () => {
     describe('dateRangesOverlap', () => {
         const validRanges: DateRange[] = [
             {
-                from: moment()
-                    .add(5, 'weeks')
-                    .toDate(),
-                to: moment()
-                    .add(6, 'week')
-                    .toDate()
+                from: moment().add(5, 'weeks').toDate(),
+                to: moment().add(6, 'week').toDate(),
             },
             {
                 from: moment().toDate(),
-                to: moment()
-                    .add(1, 'week')
-                    .toDate()
+                to: moment().add(1, 'week').toDate(),
             },
             {
-                from: moment()
-                    .add(2, 'weeks')
-                    .toDate(),
-                to: moment()
-                    .add(3, 'week')
-                    .toDate()
-            }
+                from: moment().add(2, 'weeks').toDate(),
+                to: moment().add(3, 'week').toDate(),
+            },
         ];
         it('should return false when no overlap exists', () => {
             expect(dateRangesCollide(validRanges)).toBeFalsy();
@@ -66,21 +62,13 @@ describe('dateUtils', () => {
             const ranges: DateRange[] = [
                 // ...validRanges,
                 {
-                    from: moment()
-                        .add(1, 'day')
-                        .toDate(),
-                    to: moment()
-                        .add(1, 'week')
-                        .toDate()
+                    from: moment().add(1, 'day').toDate(),
+                    to: moment().add(1, 'week').toDate(),
                 },
                 {
-                    from: moment()
-                        .add(1, 'week')
-                        .toDate(),
-                    to: moment()
-                        .add(2, 'week')
-                        .toDate()
-                }
+                    from: moment().add(1, 'week').toDate(),
+                    to: moment().add(2, 'week').toDate(),
+                },
             ];
             expect(dateRangesCollide(ranges)).toBeTruthy();
         });
@@ -89,18 +77,14 @@ describe('dateUtils', () => {
     describe('dateRangesExceedsRange', () => {
         const range = {
             from: moment().toDate(),
-            to: moment()
-                .add(2, 'week')
-                .toDate()
+            to: moment().add(2, 'week').toDate(),
         };
 
         const ranges: DateRange[] = [
             {
                 from: moment().toDate(),
-                to: moment()
-                    .add(1, 'week')
-                    .toDate()
-            }
+                to: moment().add(1, 'week').toDate(),
+            },
         ];
 
         it('should return false if ranges are within valid range', () => {
@@ -112,13 +96,9 @@ describe('dateUtils', () => {
                     [
                         ...ranges,
                         {
-                            from: moment()
-                                .subtract(2, 'day')
-                                .toDate(),
-                            to: moment()
-                                .subtract(1, 'day')
-                                .toDate()
-                        }
+                            from: moment().subtract(2, 'day').toDate(),
+                            to: moment().subtract(1, 'day').toDate(),
+                        },
                     ],
                     range
                 )
@@ -130,13 +110,9 @@ describe('dateUtils', () => {
                     [
                         ...ranges,
                         {
-                            from: moment()
-                                .add(3, 'weeks')
-                                .toDate(),
-                            to: moment()
-                                .add(4, 'weeks')
-                                .toDate()
-                        }
+                            from: moment().add(3, 'weeks').toDate(),
+                            to: moment().add(4, 'weeks').toDate(),
+                        },
                     ],
                     range
                 )
@@ -147,27 +123,17 @@ describe('dateUtils', () => {
     describe('dateRangesHasFromDateEqualPreviousRangeToDate', () => {
         const validRanges: DateRange[] = [
             {
-                from: moment()
-                    .add(5, 'weeks')
-                    .toDate(),
-                to: moment()
-                    .add(6, 'week')
-                    .toDate()
+                from: moment().add(5, 'weeks').toDate(),
+                to: moment().add(6, 'week').toDate(),
             },
             {
                 from: moment().toDate(),
-                to: moment()
-                    .add(1, 'week')
-                    .toDate()
+                to: moment().add(1, 'week').toDate(),
             },
             {
-                from: moment()
-                    .add(2, 'weeks')
-                    .toDate(),
-                to: moment()
-                    .add(3, 'week')
-                    .toDate()
-            }
+                from: moment().add(2, 'weeks').toDate(),
+                to: moment().add(3, 'week').toDate(),
+            },
         ];
 
         it('is should return false when a dateRange does not have from-date equal another dateRanges to-date', () => {
@@ -178,9 +144,7 @@ describe('dateUtils', () => {
             const range: DateRange = { ...validRanges[2] };
             const invalidRange = {
                 from: moment(range.to).toDate(),
-                to: moment(range.to)
-                    .add(1, 'day')
-                    .toDate()
+                to: moment(range.to).add(1, 'day').toDate(),
             };
 
             expect(dateRangesHasFromDateEqualPreviousRangeToDate([...validRanges, invalidRange])).toBeTruthy();
@@ -188,21 +152,15 @@ describe('dateUtils', () => {
     });
 
     describe('datesCollideWithDateRanges', () => {
-        const date1 = moment()
-            .add(1, 'day')
-            .toDate();
-        const date2 = moment()
-            .add(2, 'day')
-            .toDate();
-        const date3 = moment()
-            .add(3, 'day')
-            .toDate();
+        const date1 = moment().add(1, 'day').toDate();
+        const date2 = moment().add(2, 'day').toDate();
+        const date3 = moment().add(3, 'day').toDate();
 
         const dateRanges: DateRange[] = [
             {
                 from: date1,
-                to: date2
-            }
+                to: date2,
+            },
         ];
 
         it('should return false if dates or dateRanges is empty', () => {
