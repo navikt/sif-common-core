@@ -39,6 +39,14 @@ export const sortDateRange = (d1: DateRange, d2: DateRange): number => {
     }
     return 1;
 };
+
+export const sortDateRangeByToDate = (d1: DateRange, d2: DateRange): number => {
+    if (moment(d1.to).isSameOrBefore(d2.to)) {
+        return -1;
+    }
+    return 1;
+};
+
 export const sortOpenDateRange = (d1: OpenDateRange, d2: OpenDateRange): number => {
     if (moment(d1.from).isSameOrBefore(d2.from)) {
         return -1;
