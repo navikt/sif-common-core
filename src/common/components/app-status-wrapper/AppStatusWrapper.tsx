@@ -4,6 +4,11 @@ import LoadWrapper from '../load-wrapper/LoadWrapper';
 
 interface Props {
     applicationKey: string;
+    sanityConfig: {
+        projectId: string;
+        dataset: string;
+        token?: string;
+    };
     contentRenderer: () => React.ReactNode;
     unavailableContentRenderer?: () => React.ReactNode;
 }
@@ -11,9 +16,10 @@ interface Props {
 const AppStatusWrapper = ({
     applicationKey,
     contentRenderer,
+    sanityConfig,
     unavailableContentRenderer: disabledContentRenderer,
 }: Props) => {
-    const { status, message, isLoading } = useAppStatus(applicationKey);
+    const { status, message, isLoading } = useAppStatus(applicationKey, sanityConfig);
 
     const renderContent = () => {
         if (status === Status.unavailable && disabledContentRenderer !== undefined) {
