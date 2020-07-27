@@ -132,7 +132,7 @@
         "ts-jest": "^25.5.1",
         "tslint": "^6.1.2",
         "tslint-config-prettier": "^1.18.0",
-        "tslint-react": "^4.2.0",
+        "tslint-react": "^5.0.0",
         "typescript": "^3.9.7"
     },
     "description": "Basis felleskomponenter for sykdom i familien søknadsskjema",
