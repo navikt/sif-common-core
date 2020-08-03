@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AlertStripeFeil, AlertStripeInfo } from 'nav-frontend-alertstriper';
 import { Element, Ingress, Undertittel } from 'nav-frontend-typografi';
 import Box from '../../../components/box/Box';
@@ -17,6 +17,16 @@ const bem = bemUtils('messagesList');
 const MessagesPreview = ({ messages, title = 'Tekster', showMissingTextSummary = true }: Props) => {
     const allMessages = createMultiLocaleObject(messages);
     const missingMessages = getMissingMessageKeys(allMessages);
+    useEffect(() => {
+        if (window.document.body.classList) {
+            window.document.body.classList.add('messagePreview');
+        }
+        return () => {
+            if (window.document.body.classList) {
+                window.document.body.classList.remove('messagePreview');
+            }
+        };
+    }, []);
     return (
         <>
             {missingMessages && showMissingTextSummary && (
