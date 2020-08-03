@@ -7,20 +7,21 @@ import { createMultiLocaleObject, getMissingMessageKeys, MessageFileFormat } fro
 import './messagesPreview.less';
 
 interface Props {
+    title?: string;
     showMissingTextSummary?: boolean;
     messages: MessageFileFormat;
 }
 
 const bem = bemUtils('messagesList');
 
-const MessagesPreview = ({ messages, showMissingTextSummary = true }: Props) => {
+const MessagesPreview = ({ messages, title = 'Tekster', showMissingTextSummary = true }: Props) => {
     const allMessages = createMultiLocaleObject(messages);
     const missingMessages = getMissingMessageKeys(allMessages);
     return (
         <>
             {missingMessages && showMissingTextSummary && (
                 <>
-                    <Undertittel>Tekstnøkler som mangler verdi for locale</Undertittel>
+                    <Undertittel>Tekstnøkler som ikke er oversatt</Undertittel>
                     <Box margin="m">
                         <AlertStripeFeil>
                             <pre className={bem.element('missingList')}>
@@ -35,7 +36,7 @@ const MessagesPreview = ({ messages, showMissingTextSummary = true }: Props) => 
                 </>
             )}
             <Box margin="xl" padBottom="l">
-                <Undertittel>Søknad om pleiepenger utvidet rett</Undertittel>
+                <Undertittel>{title}</Undertittel>
             </Box>
             <AlertStripeInfo>
                 <Ingress>Tegnforklaring</Ingress>
