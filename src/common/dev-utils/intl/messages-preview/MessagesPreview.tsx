@@ -7,17 +7,18 @@ import { createMultiLocaleObject, getMissingMessageKeys, MessageFileFormat } fro
 import './messagesPreview.less';
 
 interface Props {
+    showMissingTextSummary?: boolean;
     messages: MessageFileFormat;
 }
 
 const bem = bemUtils('messagesList');
 
-const MessagesPreview = ({ messages }: Props) => {
+const MessagesPreview = ({ messages, showMissingTextSummary = true }: Props) => {
     const allMessages = createMultiLocaleObject(messages);
     const missingMessages = getMissingMessageKeys(allMessages);
     return (
         <>
-            {missingMessages && (
+            {missingMessages && showMissingTextSummary && (
                 <>
                     <Undertittel>Tekstnøkler som mangler verdi for locale</Undertittel>
                     <Box margin="m">
