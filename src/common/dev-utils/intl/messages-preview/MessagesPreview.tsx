@@ -9,12 +9,18 @@ import './messagesPreview.less';
 interface Props {
     title?: string;
     showMissingTextSummary?: boolean;
+    showExplanation?: boolean;
     messages: MessageFileFormat;
 }
 
 const bem = bemUtils('messagesList');
 
-const MessagesPreview = ({ messages, title = 'Tekster', showMissingTextSummary = true }: Props) => {
+const MessagesPreview = ({
+    messages,
+    title = 'Tekster',
+    showMissingTextSummary = true,
+    showExplanation = true,
+}: Props) => {
     const allMessages = createMultiLocaleObject(messages);
     const missingMessages = getMissingMessageKeys(allMessages);
     useEffect(() => {
@@ -48,35 +54,37 @@ const MessagesPreview = ({ messages, title = 'Tekster', showMissingTextSummary =
             <Box margin="xl" padBottom="l">
                 <Undertittel>{title}</Undertittel>
             </Box>
-            <AlertStripeInfo>
-                <Ingress>Tegnforklaring</Ingress>
-                <p>
-                    Tekstene inneholder koder som brukes når applikasjonen setter inn verdier, og for å bestemme hvordan
-                    teksten skal se ut.
-                </p>
-                <p>
-                    <Element> Entall/flertall av en verdi</Element>
-                    <blockquote style={{ margin: 0, padding: '0.5rem 0' }}>
-                        <code>{`{timer, plural, one {# time} other {# timer}}`}</code>
-                    </blockquote>
-                    Kun ordene direkte etter # skal oversettes, resten er teknisk kode.
-                </p>
-                <p>
-                    <Element>Sett inn verdi i tekst</Element>
-                    <blockquote style={{ margin: 0, padding: '0.5rem 0' }}>
-                        <code>{`Første gyldige dato er {fom}, og siste gyldige dato er {tom}`}</code>
-                    </blockquote>
-                    Ord i klammer, f.eks. <code>{`{fom}`}</code>, blir erstattet med en verdi fra applikasjonen, og skal
-                    ikke oversettes.
-                </p>
-                <p>
-                    <Element>HTML-formatering</Element>
-                    <blockquote style={{ margin: 0, padding: '0.5rem 0' }}>
-                        <code>{`<p>En tekst som inneholder HTML kode</p>`}</code>
-                    </blockquote>
-                    All tekst, untatt tegn/ord i {`< >`} skal oversettes.
-                </p>
-            </AlertStripeInfo>
+            {showExplanation && (
+                <AlertStripeInfo>
+                    <Ingress>Tegnforklaring</Ingress>
+                    <p>
+                        Tekstene inneholder koder som brukes når applikasjonen setter inn verdier, og for å bestemme
+                        hvordan teksten skal se ut.
+                    </p>
+                    <p>
+                        <Element> Entall/flertall av en verdi</Element>
+                        <blockquote style={{ margin: 0, padding: '0.5rem 0' }}>
+                            <code>{`{timer, plural, one {# time} other {# timer}}`}</code>
+                        </blockquote>
+                        Kun ordene direkte etter # skal oversettes, resten er teknisk kode.
+                    </p>
+                    <p>
+                        <Element>Sett inn verdi i tekst</Element>
+                        <blockquote style={{ margin: 0, padding: '0.5rem 0' }}>
+                            <code>{`Første gyldige dato er {fom}, og siste gyldige dato er {tom}`}</code>
+                        </blockquote>
+                        Ord i klammer, f.eks. <code>{`{fom}`}</code>, blir erstattet med en verdi fra applikasjonen, og
+                        skal ikke oversettes.
+                    </p>
+                    <p>
+                        <Element>HTML-formatering</Element>
+                        <blockquote style={{ margin: 0, padding: '0.5rem 0' }}>
+                            <code>{`<p>En tekst som inneholder HTML kode</p>`}</code>
+                        </blockquote>
+                        All tekst, untatt tegn/ord i {`< >`} skal oversettes.
+                    </p>
+                </AlertStripeInfo>
+            )}
             <dl className={bem.block}>
                 {Object.keys(allMessages).map((key) => {
                     return (
