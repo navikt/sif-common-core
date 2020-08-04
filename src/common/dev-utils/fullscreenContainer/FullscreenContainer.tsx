@@ -1,4 +1,5 @@
 import React from 'react';
+import './fullscreenContainer.less';
 
 interface Props {
     children: React.ReactNode;
