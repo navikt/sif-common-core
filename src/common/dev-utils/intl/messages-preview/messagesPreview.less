@@ -1,24 +1,22 @@
 @import '~nav-frontend-core/less/_variabler.less';
-body.messagePreview #app > .typo-normal {
-    display: none;
-}
-.messagesList {
+.messagePreview {
     &__missingList {
         margin: 0;
         font-size: 0.875rem;
     }
     dl {
         margin-left: 1rem;
+        padding: 0;
     }
     dt {
         margin-top: 1rem;
         opacity: 0.75;
     }
     dd {
-        margin: 0.25rem 0 0.25rem 1rem;
+        padding: 0;
+        margin: 0.25rem 0 0.25rem 0;
         display: flex;
         justify-items: stretch;
-        width: 100%;
         align-items: stretch;
     }
     &__locale {

@@ -23,18 +23,8 @@ const MessagesPreview = ({
 }: Props) => {
     const allMessages = createMultiLocaleObject(messages);
     const missingMessages = getMissingMessageKeys(allMessages);
-    useEffect(() => {
-        if (window.document.body.classList) {
-            window.document.body.classList.add('messagePreview');
-        }
-        return () => {
-            if (window.document.body.classList) {
-                window.document.body.classList.remove('messagePreview');
-            }
-        };
-    }, []);
     return (
-        <>
+        <div className={bem.block}>
             {missingMessages && showMissingTextSummary && (
                 <>
                     <Undertittel>Tekstnøkler som ikke er oversatt</Undertittel>
@@ -57,32 +47,32 @@ const MessagesPreview = ({
             {showExplanation && (
                 <AlertStripeInfo>
                     <Ingress>Tegnforklaring</Ingress>
-                    <p>
+                    <Box>
                         Tekstene inneholder koder som brukes når applikasjonen setter inn verdier, og for å bestemme
                         hvordan teksten skal se ut.
-                    </p>
-                    <p>
+                    </Box>
+                    <Box>
                         <Element> Entall/flertall av en verdi</Element>
                         <blockquote style={{ margin: 0, padding: '0.5rem 0' }}>
                             <code>{`{timer, plural, one {# time} other {# timer}}`}</code>
                         </blockquote>
                         Kun ordene direkte etter # skal oversettes, resten er teknisk kode.
-                    </p>
-                    <p>
+                    </Box>
+                    <Box>
                         <Element>Sett inn verdi i tekst</Element>
                         <blockquote style={{ margin: 0, padding: '0.5rem 0' }}>
                             <code>{`Første gyldige dato er {fom}, og siste gyldige dato er {tom}`}</code>
                         </blockquote>
                         Ord i klammer, f.eks. <code>{`{fom}`}</code>, blir erstattet med en verdi fra applikasjonen, og
                         skal ikke oversettes.
-                    </p>
-                    <p>
+                    </Box>
+                    <Box>
                         <Element>HTML-formatering</Element>
                         <blockquote style={{ margin: 0, padding: '0.5rem 0' }}>
-                            <code>{`<p>En tekst som inneholder HTML kode</p>`}</code>
+                            <code>{`<Box>En tekst som inneholder HTML kode</Box>`}</code>
                         </blockquote>
                         All tekst, untatt tegn/ord i {`< >`} skal oversettes.
-                    </p>
+                    </Box>
                 </AlertStripeInfo>
             )}
             <dl className={bem.block}>
@@ -107,7 +97,7 @@ const MessagesPreview = ({
                     );
                 })}
             </dl>
-        </>
+        </div>
     );
 };
 
