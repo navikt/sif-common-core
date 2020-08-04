@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { AlertStripeFeil, AlertStripeInfo } from 'nav-frontend-alertstriper';
 import { Element, Ingress, Undertittel } from 'nav-frontend-typografi';
 import Box from '../../../components/box/Box';
@@ -13,7 +13,7 @@ interface Props {
     messages: MessageFileFormat;
 }
 
-const bem = bemUtils('messagesList');
+const bem = bemUtils('messagesPreview');
 
 const MessagesPreview = ({
     messages,
