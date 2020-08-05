@@ -4,6 +4,7 @@ import { Element, Ingress, Undertittel } from 'nav-frontend-typografi';
 import Box from '../../../components/box/Box';
 import bemUtils from '../../../utils/bemUtils';
 import { createMultiLocaleObject, getMissingMessageKeys, MessageFileFormat } from '../devIntlUtils';
+import MessagesList from './MessagesList';
 import './messagesPreview.less';
 
 interface Props {
@@ -75,28 +76,7 @@ const MessagesPreview = ({
                     </Box>
                 </AlertStripeInfo>
             )}
-            <dl className={bem.block}>
-                {Object.keys(allMessages).map((key) => {
-                    return (
-                        <span key={key}>
-                            <dt>{key}</dt>
-                            {Object.keys(allMessages[key]).map((locale) => {
-                                const value = allMessages[key][locale];
-                                return (
-                                    <dd key={locale}>
-                                        <span className={bem.element('locale')}>
-                                            <span className={bem.element('etikett')}>{locale}:</span>
-                                        </span>
-                                        <span className={bem.element('message')}>
-                                            {value ? value : <span className={bem.element('missing')}>Mangler!</span>}
-                                        </span>
-                                    </dd>
-                                );
-                            })}
-                        </span>
-                    );
-                })}
-            </dl>
+            <MessagesList messages={messages} />
         </div>
     );
 };

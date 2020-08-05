@@ -1,8 +1,8 @@
 import React from 'react';
+import MessagesPreview from '../../common/dev-utils/intl/messages-preview/MessagesPreview';
+import { allCommonMessages } from '../../common/i18n/allCommonMessages';
 import Intro from '../Intro';
 import PictureScanningGuideView from '../pages/PictureScanningGuideView';
-import { allCommonMessages } from '../../common/i18n/allCommonMessages';
-import MessagesPreview from '../../common/dev-utils/intl/messages-preview/MessagesPreview';
 
 export interface RouteConfig {
     path: string;
@@ -24,7 +24,9 @@ export const routes: RouteConfig[] = [
     {
         path: 'messages',
         title: 'Tekster',
-        renderContent: () => <MessagesPreview messages={allCommonMessages} title="Common texts" />,
+        renderContent: () => (
+            <MessagesPreview messages={allCommonMessages} title="Common texts" showExplanation={false} />
+        ),
     },
 ];
 
