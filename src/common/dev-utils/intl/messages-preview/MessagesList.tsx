@@ -24,14 +24,12 @@ const MessagesList = ({ messages }: Props) => {
                             <th>
                                 <code>{key}</code>
                             </th>
-                            {Object.keys(allMessages[key]).map((locale) => {
-                                const value = allMessages[key][locale];
-                                return (
-                                    <td key={locale} className={value ? '' : 'missingText'}>
-                                        {value}
-                                    </td>
-                                );
-                            })}
+                            <td key="nb" className={allMessages[key]['nb'] ? '' : 'missingText'}>
+                                {allMessages[key]['nb']}
+                            </td>
+                            <td key="nn" className={allMessages[key]['nn'] ? '' : 'missingText'}>
+                                {allMessages[key]['nn']}
+                            </td>
                         </tr>
                     );
                 })}
