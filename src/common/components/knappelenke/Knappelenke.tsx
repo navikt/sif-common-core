@@ -10,17 +10,16 @@ interface Props extends LenkeProps {
     href: string;
     children: ReactNode;
     type?: KnappeLenkeType;
-    center?: boolean;
 }
 
-const Knappelenke = ({ href, type, children, center, ...restProps }: Props) => {
-    const knappeLenkeBody = (
-        <Lenke href={href}
-               className={classnames('knapp', `knapp--${type || 'standard'}`, 'knappelenke')} {...restProps}>
-            <span>{children}</span>
-        </Lenke>
-    );
-    return center ? <div className={'knappelenke-wrapper'}>{knappeLenkeBody}</div> : knappeLenkeBody;
-};
+const Knappelenke = ({ href, type, children, ...restProps }: Props) => (
+    <Lenke
+        href={href}
+        className={classnames('knapp', `knapp--${type || 'standard'}`, 'knappelenke')}
+        {...restProps}
+    >
+        <span>{children}</span>
+    </Lenke>
+);
 
 export default Knappelenke;
