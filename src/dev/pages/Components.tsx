@@ -20,7 +20,7 @@ const ComponentsView: React.FC<Props> = (props: Props) => {
             <ContentWithHeader header={'En lenke som ser ut som en Knapp'}>
                 <Box margin={'l'} padBottom={'xl'}>
                     <Knappelenke href={'#'} center={false} type={'hoved'}>
-                        En lenke som ser ut som en knapp
+                        Knappelenke som returnerer style'et Lenke
                     </Knappelenke>
                 </Box>
             </ContentWithHeader>
