@@ -3,6 +3,7 @@ import MessagesPreview from '../../common/dev-utils/intl/messages-preview/Messag
 import { allCommonMessages } from '../../common/i18n/allCommonMessages';
 import Intro from '../Intro';
 import PictureScanningGuideView from '../pages/PictureScanningGuideView';
+import ComponentsView from '../pages/Components';
 
 export interface RouteConfig {
     path: string;
@@ -26,6 +27,13 @@ export const routes: RouteConfig[] = [
         title: 'Tekster',
         renderContent: () => (
             <MessagesPreview messages={allCommonMessages} title="Common texts" showExplanation={false} />
+        ),
+    },
+    {
+        path: 'components',
+        title: 'Components',
+        renderContent: () => (
+            <ComponentsView />
         ),
     },
 ];
