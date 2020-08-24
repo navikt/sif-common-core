@@ -24,7 +24,7 @@ const FileUploadErrors: React.FunctionComponent<Props> = ({ filesThatDidntGetUpl
                             {type}
                             {size && !fileSizeIsValid(size) && (
                                 <div style={{ fontSize: '0.9rem' }}>
-                                    Fila er for stor ({prettyBytes(size)}). Maks filstørrelse er {prettyBytes(8000000)}.
+                                    Fila er for stor ({prettyBytes(size)}). Maks filstørrelse er {prettyBytes(10000000)}.
                                 </div>
                             )}
                         </li>
