@@ -1,6 +1,6 @@
 import React from 'react';
-import { AlertStripeFeil, AlertStripeInfo } from 'nav-frontend-alertstriper';
-import { Element, Ingress, Undertittel } from 'nav-frontend-typografi';
+import { AlertStripeFeil } from 'nav-frontend-alertstriper';
+import { Undertittel } from 'nav-frontend-typografi';
 import Box from '../../../components/box/Box';
 import bemUtils from '../../../utils/bemUtils';
 import { createMultiLocaleObject, getMissingMessageKeys, MessageFileFormat } from '../devIntlUtils';

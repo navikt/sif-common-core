@@ -3,9 +3,7 @@ import { AlertStripeInfo } from 'nav-frontend-alertstriper';
 import { Element, Ingress } from 'nav-frontend-typografi';
 import Box from '../../../components/box/Box';
 
-interface Props {}
-
-const MessagesPreviewExplanation = ({}: Props) => (
+const MessagesPreviewExplanation = () => (
     <AlertStripeInfo>
         <Ingress>Tegnforklaring</Ingress>
         <Box>

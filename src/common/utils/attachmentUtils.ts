@@ -3,6 +3,14 @@ import { Attachment, PersistedFile } from '../types/Attachment';
 export const VALID_EXTENSIONS = ['.pdf', '.jpeg', '.jpg', '.png'];
 
 export const MAX_FILESIZE_FOR_UPLOAD = 9999999;
+export const MAX_TOTAL_ATTACHMENT_SIZE_IN_MB = 24;
+export const MAX_TOTAL_ATTACHMENT_SIZE_BYTES = 1000 * 1000 * MAX_TOTAL_ATTACHMENT_SIZE_IN_MB;
+
+export const getTotalSizeOfAttachments = (attachments: Attachment[]): number =>
+    attachments
+        .filter((attachment: Attachment) => attachment.uploaded)
+        .map((attachment: Attachment) => attachment.file.size)
+        .reduce((prev, curr) => prev + curr, 0);
 
 export const fileExtensionIsValid = (filename: string): boolean => {
     const ext = filename.split('.').pop();
