@@ -2,7 +2,7 @@ import { Attachment, PersistedFile } from '../types/Attachment';
 
 export const VALID_EXTENSIONS = ['.pdf', '.jpeg', '.jpg', '.png'];
 
-export const MAX_FILESIZE_FOR_UPLOAD = 7999999;
+export const MAX_FILESIZE_FOR_UPLOAD = 9999999;
 
 export const fileExtensionIsValid = (filename: string): boolean => {
     const ext = filename.split('.').pop();
