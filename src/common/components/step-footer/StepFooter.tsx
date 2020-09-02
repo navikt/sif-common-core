@@ -7,13 +7,15 @@ import FortsettSoknadSenereDialog from '../dialogs/fortsettSøknadSenereDialog/F
 import './stepFooter.less';
 
 interface Props {
-    onAvbrytOgFortsettSenere: () => void;
-    onAvbrytOgSlett: () => void;
+    onAvbrytOgFortsettSenere?: () => void;
+    onAvbrytOgSlett?: () => void;
 }
 
 function StepFooter({ onAvbrytOgFortsettSenere, onAvbrytOgSlett }: Props) {
     const [visAvbrytDialog, setVisAvbrytDialog] = React.useState<boolean>(false);
     const [visFortsettSenereDialog, setVisFortsettSenereDialog] = React.useState<boolean>(false);
+
+    const bothLinksVisible = onAvbrytOgFortsettSenere && onAvbrytOgSlett;
 
     const bem = bemUtils('stepFooter');
     return (
@@ -21,25 +23,35 @@ function StepFooter({ onAvbrytOgFortsettSenere, onAvbrytOgSlett }: Props) {
             <div className={bem.block}>
                 <div className={bem.element('divider')} />
                 <div className={bem.element('links')}>
-                    <ActionLink onClick={() => setVisFortsettSenereDialog(true)}>
-                        <FormattedMessage id="steg.footer.fortsettSenere" />
-                    </ActionLink>
-                    <span className={bem.element('dot')} aria-hidden={true} />
-                    <ActionLink className={bem.element('avbrytSoknadLenke')} onClick={() => setVisAvbrytDialog(true)}>
-                        <FormattedMessage id="steg.footer.avbryt" />
-                    </ActionLink>
+                    {onAvbrytOgFortsettSenere && (
+                        <ActionLink onClick={() => setVisFortsettSenereDialog(true)}>
+                            <FormattedMessage id="steg.footer.fortsettSenere" />
+                        </ActionLink>
+                    )}
+                    {bothLinksVisible && <span className={bem.element('dot')} aria-hidden={true} />}
+                    {onAvbrytOgFortsettSenere && (
+                        <ActionLink
+                            className={bem.element('avbrytSoknadLenke')}
+                            onClick={() => setVisAvbrytDialog(true)}>
+                            <FormattedMessage id="steg.footer.avbryt" />
+                        </ActionLink>
+                    )}
                 </div>
             </div>
-            <FortsettSoknadSenereDialog
-                synlig={visFortsettSenereDialog}
-                onFortsettSøknadSenere={onAvbrytOgFortsettSenere}
-                onFortsettSøknad={() => setVisFortsettSenereDialog(false)}
-            />
-            <AvbrytSoknadDialog
-                synlig={visAvbrytDialog}
-                onAvbrytSøknad={onAvbrytOgSlett}
-                onFortsettSøknad={() => setVisAvbrytDialog(false)}
-            />
+            {onAvbrytOgFortsettSenere && (
+                <FortsettSoknadSenereDialog
+                    synlig={visFortsettSenereDialog}
+                    onFortsettSøknadSenere={onAvbrytOgFortsettSenere}
+                    onFortsettSøknad={() => setVisFortsettSenereDialog(false)}
+                />
+            )}
+            {onAvbrytOgSlett && (
+                <AvbrytSoknadDialog
+                    synlig={visAvbrytDialog}
+                    onAvbrytSøknad={onAvbrytOgSlett}
+                    onFortsettSøknad={() => setVisAvbrytDialog(false)}
+                />
+            )}
         </>
     );
 }
