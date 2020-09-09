@@ -29,7 +29,7 @@ function StepFooter({ onAvbrytOgFortsettSenere, onAvbrytOgSlett }: Props) {
                         </ActionLink>
                     )}
                     {bothLinksVisible && <span className={bem.element('dot')} aria-hidden={true} />}
-                    {onAvbrytOgFortsettSenere && (
+                    {onAvbrytOgSlett && (
                         <ActionLink
                             className={bem.element('avbrytSoknadLenke')}
                             onClick={() => setVisAvbrytDialog(true)}>

@@ -135,3 +135,16 @@ export const sortItemsByFomTom = (a: ItemWithFomTom, b: ItemWithFomTom) =>
     sortDateRange({ from: a.fom, to: a.fom }, { from: b.fom, to: b.tom });
 
 export const sortItemsByFom = (a: ItemWithFom, b: ItemWithFom) => sortOpenDateRange({ from: a.fom }, { from: b.fom });
+
+export const datoErInnenforTidsrom = (dato: Date, range: Partial<DateRange>): boolean => {
+    if (range.from && range.to) {
+        return moment(dato).isBetween(range.from, range.to, 'days', '[]');
+    }
+    if (range.from) {
+        return moment(dato).isSameOrAfter(range.from);
+    }
+    if (range.to) {
+        return moment(dato).isSameOrBefore(range.to);
+    }
+    return true;
+};

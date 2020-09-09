@@ -1,4 +1,5 @@
 import { YesOrNo } from '../types/YesOrNo';
+import { DateRange, datoErInnenforTidsrom } from '../utils/dateUtils';
 import { hasValue } from '../validation/hasValue';
 import { FieldValidationResult } from '../validation/types';
 import { erGyldigNorskOrgnummer } from './erGyldigNorskOrgnummer';
@@ -14,6 +15,7 @@ export enum FieldValidationErrors {
     'tall_for_høyt' = 'common.fieldvalidation.tall_for_høyt',
     'tall_ikke_innenfor_min_maks' = 'common.fieldvalidation.tall_ikke_innenfor_min_maks',
     'ugyldig_telefonnummer' = 'common.fieldvalidation.ugyldig_telefonnummer',
+    'dato_utenfor_gyldig_tidsrom' = 'common.fieldvalidation.dato_utenfor_gyldig_tidsrom',
 }
 
 export const fieldIsRequiredError = () => createFieldValidationError(FieldValidationErrors.påkrevd);
@@ -108,6 +110,13 @@ export const validatePhoneNumber = (value: string): FieldValidationResult => {
     }
     if (value.length < 5 || value.length > 15) {
         return createFieldValidationError(FieldValidationErrors.ugyldig_telefonnummer);
+    }
+    return undefined;
+};
+
+export const validateDateInRange = (tidsrom: Partial<DateRange>) => (date: any): FieldValidationResult => {
+    if (!datoErInnenforTidsrom(date, tidsrom)) {
+        return createFieldValidationError(FieldValidationErrors.dato_utenfor_gyldig_tidsrom);
     }
     return undefined;
 };
