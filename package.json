@@ -1,6 +1,6 @@
 {
     "name": "@navikt/sif-common-core",
-    "version": "5.0.39",
+    "version": "5.0.40",
     "private": false,
     "scripts": {
         "build-dev-app": "craco build",
