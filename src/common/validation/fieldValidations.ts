@@ -5,6 +5,10 @@ import { FieldValidationResult } from '../validation/types';
 import { erGyldigNorskOrgnummer } from './erGyldigNorskOrgnummer';
 import { fødselsnummerIsValid, FødselsnummerValidationErrorReason } from './fødselsnummerValidator';
 
+export declare type FormikValidateFunction = (value: any) => any;
+
+export type FieldValidationArray = (validations: FormikValidateFunction[]) => (value: any) => FieldValidationResult;
+
 export enum FieldValidationErrors {
     'påkrevd' = 'common.fieldvalidation.påkrevd',
     'fødselsnummer_11siffer' = 'common.fieldvalidation.fødselsnummer.11siffer',
@@ -119,4 +123,19 @@ export const validateDateInRange = (tidsrom: Partial<DateRange>) => (date: any):
         return createFieldValidationError(FieldValidationErrors.dato_utenfor_gyldig_tidsrom);
     }
     return undefined;
+};
+
+export const validateAll: FieldValidationArray = (validations: FormikValidateFunction[]) => (
+    value: any
+): FieldValidationResult => {
+    let result: FieldValidationResult;
+    validations.some((validate) => {
+        const r = validate(value);
+        if (r) {
+            result = r;
+            return true;
+        }
+        return false;
+    });
+    return result;
 };
