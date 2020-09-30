@@ -15,8 +15,6 @@ function StepFooter({ onAvbrytOgFortsettSenere, onAvbrytOgSlett }: Props) {
     const [visAvbrytDialog, setVisAvbrytDialog] = React.useState<boolean>(false);
     const [visFortsettSenereDialog, setVisFortsettSenereDialog] = React.useState<boolean>(false);
 
-    const bothLinksVisible = onAvbrytOgFortsettSenere && onAvbrytOgSlett;
-
     const bem = bemUtils('stepFooter');
     return (
         <>
@@ -28,7 +26,6 @@ function StepFooter({ onAvbrytOgFortsettSenere, onAvbrytOgSlett }: Props) {
                             <FormattedMessage id="steg.footer.fortsettSenere" />
                         </ActionLink>
                     )}
-                    {bothLinksVisible && <span className={bem.element('dot')} aria-hidden={true} />}
                     {onAvbrytOgSlett && (
                         <ActionLink
                             className={bem.element('avbrytSoknadLenke')}
