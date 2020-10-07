@@ -54,14 +54,25 @@ export const countryIsMemberOfEøsOrEfta = (isoCode: string) => {
     return eøsAndEftaCountries[isoCodeToUse.toUpperCase()] === true;
 };
 
+const simplifyLocalizedName = (name: string | string[]): string => {
+    if (Array.isArray(name)) {
+        return name[0];
+    }
+    return name;
+};
+
+const getCountryNames = (locale: string) => {
+    return Object.entries(countries.getNames(locale)).map((name) => [name[0], simplifyLocalizedName(name[0])]);
+};
+
 export const getCountriesForLocale = (locale: string, onlyEøsOrEftaCountries?: boolean): Country[] => {
-    return Object.entries(countries.getNames(locale))
-        .filter((countryOptionValue: string[]) =>
+    return getCountryNames(locale)
+        .filter((countryOptionValue) =>
             onlyEøsOrEftaCountries
                 ? countryIsMemberOfEøsOrEfta(countryOptionValue[isoCodeIndex])
                 : countryOptionValue[isoCodeIndex] !== ANTARTICA
         )
-        .sort((a: string[], b: string[]) => a[1].localeCompare(b[1], locale))
+        .sort((a, b) => a[1].localeCompare(b[1], locale))
         .map((countryOptionValue: string[]) => ({
             isoCode: countryOptionValue[isoCodeIndex],
             name: countryOptionValue[countryNameIndex],
@@ -69,7 +80,7 @@ export const getCountriesForLocale = (locale: string, onlyEøsOrEftaCountries?: 
 };
 
 export const getCountryName = (isoCode: string, locale: string): string => {
-    const names = countries.getNames(locale);
+    const names = getCountryNames(locale);
     return names[isoCode];
 };
 

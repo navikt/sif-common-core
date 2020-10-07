@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import * as React from 'react';
+import React from 'react';
 
 import { Attachment } from '../../../types/Attachment';
 import AttachmentLabel from '../AttachmentLabel';
@@ -12,7 +12,7 @@ jest.mock('./../../custom-svg/CustomSVG', () => () => {
 
 describe('<AttachmentLabel />', () => {
     const attachment: Partial<Attachment> = {
-        file: new File([''], 'filename', { type: 'text/png' })
+        file: new File([''], 'filename', { type: 'text/png' }),
     };
 
     it('should show icon to the user', () => {

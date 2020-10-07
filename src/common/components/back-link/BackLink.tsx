@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ const BackLink: React.FunctionComponent<BackLinkProps & RouteComponentProps> = (
     className,
     href,
     history,
-    onClick
+    onClick,
 }) => {
     const navigate = () => history.push(href);
 

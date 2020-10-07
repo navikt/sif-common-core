@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import bemHelper from '../../utils/bemUtils';
 import Trashcan from './TrashcanSvg';
 import './deleteButton.less';

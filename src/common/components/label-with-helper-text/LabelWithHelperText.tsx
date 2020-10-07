@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useIntl } from 'react-intl';
 
 import bemUtils from '../../utils/bemUtils';
@@ -23,7 +23,7 @@ const LabelWithHelperText: React.FunctionComponent<LabelWithHelperText> = ({
     helperText,
     htmlFor,
     showByDefault,
-    tag = 'label'
+    tag = 'label',
 }) => {
     const [showHelperText, setShowHelperText] = React.useState(showByDefault === true);
     const intl = useIntl();

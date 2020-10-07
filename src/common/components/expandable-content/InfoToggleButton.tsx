@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import NavFrontendChevron from 'nav-frontend-chevron';
 import bemUtils from '../../utils/bemUtils';
 import './infoToggleButton.less';

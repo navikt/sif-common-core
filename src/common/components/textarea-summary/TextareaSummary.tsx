@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 interface Props {
     text?: string;
@@ -10,7 +10,7 @@ const TextareaSummary: React.StatelessComponent<Props> = ({ text }) => {
             <div
                 style={{ marginTop: '0.5rem', marginBottom: '1rem' }}
                 dangerouslySetInnerHTML={{
-                    __html: text.replace(/\n/, '<br/>')
+                    __html: text.replace(/\n/, '<br/>'),
                 }}
             />
         );

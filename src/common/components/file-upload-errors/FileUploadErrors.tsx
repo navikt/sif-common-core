@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import prettyBytes from 'pretty-bytes';
 import { AlertStripeAdvarsel } from 'nav-frontend-alertstriper';
@@ -24,7 +24,8 @@ const FileUploadErrors: React.FunctionComponent<Props> = ({ filesThatDidntGetUpl
                             {type}
                             {size && !fileSizeIsValid(size) && (
                                 <div style={{ fontSize: '0.9rem' }}>
-                                    Fila er for stor ({prettyBytes(size)}). Maks filstørrelse er {prettyBytes(10000000)}.
+                                    Fila er for stor ({prettyBytes(size)}). Maks filstørrelse er {prettyBytes(10000000)}
+                                    .
                                 </div>
                             )}
                         </li>

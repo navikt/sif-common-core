@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { Attachment } from '../../types/Attachment';
 import bemHelper from '../../utils/bemUtils';
@@ -15,7 +15,7 @@ interface AttachmentListElementProps {
 
 const AttachmentListElement: React.FunctionComponent<AttachmentListElementProps> = ({
     attachment,
-    renderRightAlignedContent
+    renderRightAlignedContent,
 }) => (
     <li className={listElementBem.block}>
         <AttachmentLabel attachment={attachment} />

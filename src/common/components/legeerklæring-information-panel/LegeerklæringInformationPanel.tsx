@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Veilederpanel from 'nav-frontend-veilederpanel';
 import LegeerklæringIcon from '../legeerklæring-icon/LegeerklæringWithArmIcon';
 import './legeerklæringInformationPanel.less';

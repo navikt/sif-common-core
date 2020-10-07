@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Collapse } from 'react-collapse';
 
 import classNames from 'classnames';
@@ -26,9 +26,8 @@ const CollapseContainer: React.StatelessComponent<Props> = ({
         <Collapse
             isOpened={isOpen}
             className={classNames('ekspanderbartInnhold', {
-                'ekspanderbartInnhold--apen': isOpen
-            })}
-        >
+                'ekspanderbartInnhold--apen': isOpen,
+            })}>
             {content}
         </Collapse>
     );

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import bemUtils from '../../utils/bemUtils';
 import ActionLink from '../action-link/ActionLink';

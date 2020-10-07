@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { Normaltekst as NormalText } from 'nav-frontend-typografi';
 

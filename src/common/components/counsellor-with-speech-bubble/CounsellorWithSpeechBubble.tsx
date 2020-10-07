@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import bemHelper from '../../utils/bemUtils';
 import Counsellor from '../counsellor/Counsellor';
@@ -17,7 +17,7 @@ export interface CounsellorWithSpeechBubbleProps {
 const CounsellorWithSpeechBubble: React.FunctionComponent<CounsellorWithSpeechBubbleProps> = ({
     strongText,
     normalText,
-    bottomContent
+    bottomContent,
 }) => (
     <div className={bem.block}>
         <SpeechBubble strongText={strongText} normalText={normalText} bottomContent={bottomContent} />

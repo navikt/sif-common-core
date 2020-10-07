@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { Attachment } from '../../types/Attachment';
 import AttachmentListElement from '../attachment-list-element/AttachmentListElement';

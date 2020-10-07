@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { default as NFCounsellorPanel, VeilederpanelProps } from 'nav-frontend-veilederpanel';
 

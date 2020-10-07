@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Button, Menu, MenuItem, Wrapper } from 'react-aria-menubutton';
 import { IntlShape, useIntl } from 'react-intl';
 import 'nav-frontend-lenker-style';

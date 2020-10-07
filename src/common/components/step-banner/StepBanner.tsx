@@ -1,10 +1,7 @@
-import * as React from 'react';
-
+import React from 'react';
 import { Undertittel } from 'nav-frontend-typografi';
-
 import Banner from '../../components/banner/Banner';
 import bemHelper from '../../utils/bemUtils';
-
 import './stepBanner.less';
 
 interface StepBannerProps {

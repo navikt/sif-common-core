@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Collapse } from 'react-collapse';
 import bemUtils from '../../utils/bemUtils';
 import './collapsableContainer.less';

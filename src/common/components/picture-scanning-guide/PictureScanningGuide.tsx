@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Lenke from 'nav-frontend-lenker';
 import { Undertittel } from 'nav-frontend-typografi';
@@ -15,28 +15,26 @@ const PictureScanningGuide: React.FunctionComponent = () => {
     const intl = useIntl();
     const svgIconHeight = 100;
     return (
-        <ExpandableInfo
-            title={intlHelper(intl, 'psg.expandable.tittel')}
-        >
+        <ExpandableInfo title={intlHelper(intl, 'psg.expandable.tittel')}>
             <div className={bem.block}>
                 <Undertittel className={bem.element('title')}>
-                    <FormattedMessage id="psg.section1.tittel"/>
+                    <FormattedMessage id="psg.section1.tittel" />
                 </Undertittel>
-                <FormattedMessage tagName="ul" id="psg.section1.liste" values={{ li: (msg) => <li>{msg}</li> }}/>
+                <FormattedMessage tagName="ul" id="psg.section1.liste" values={{ li: (msg) => <li>{msg}</li> }} />
 
                 <Undertittel className={bem.element('title')}>
-                    <FormattedMessage id="psg.section2.tittel"/>
+                    <FormattedMessage id="psg.section2.tittel" />
                 </Undertittel>
 
-                <FormattedMessage tagName="ul" id="psg.section2.liste" values={{ li: (msg) => <li>{msg}</li> }}/>
+                <FormattedMessage tagName="ul" id="psg.section2.liste" values={{ li: (msg) => <li>{msg}</li> }} />
                 <div className={bem.element('examples')}>
                     <Undertittel tag="h3" className={bem.element('title')}>
-                        <FormattedMessage id="psg.icon.heading"/>
+                        <FormattedMessage id="psg.icon.heading" />
                     </Undertittel>
                     <div className={bem.element('body')}>
                         <div className={bem.element('cell')}>
                             <PictureScanningExample
-                                image={<ScanningIcon status="good" height={svgIconHeight}/>}
+                                image={<ScanningIcon status="good" height={svgIconHeight} />}
                                 status="suksess"
                                 statusText={intlHelper(intl, 'psg.good')}
                                 description={intlHelper(intl, 'psg.icon.label.good')}
@@ -44,7 +42,7 @@ const PictureScanningGuide: React.FunctionComponent = () => {
                         </div>
                         <div className={bem.element('cell')}>
                             <PictureScanningExample
-                                image={<ScanningIcon status="keystone" height={svgIconHeight}/>}
+                                image={<ScanningIcon status="keystone" height={svgIconHeight} />}
                                 status="feil"
                                 statusText={intlHelper(intl, 'psg.bad')}
                                 description={intlHelper(intl, 'psg.icon.label.keystone')}
@@ -52,7 +50,7 @@ const PictureScanningGuide: React.FunctionComponent = () => {
                         </div>
                         <div className={bem.element('cell')}>
                             <PictureScanningExample
-                                image={<ScanningIcon status="horizontal" height={svgIconHeight}/>}
+                                image={<ScanningIcon status="horizontal" height={svgIconHeight} />}
                                 status="feil"
                                 statusText={intlHelper(intl, 'psg.bad')}
                                 description={intlHelper(intl, 'psg.icon.label.horizontal')}
@@ -60,7 +58,7 @@ const PictureScanningGuide: React.FunctionComponent = () => {
                         </div>
                         <div className={bem.element('cell')}>
                             <PictureScanningExample
-                                image={<ScanningIcon status="shadow" height={svgIconHeight}/>}
+                                image={<ScanningIcon status="shadow" height={svgIconHeight} />}
                                 status="feil"
                                 statusText={intlHelper(intl, 'psg.bad')}
                                 description={intlHelper(intl, 'psg.icon.label.shadow')}
@@ -68,7 +66,7 @@ const PictureScanningGuide: React.FunctionComponent = () => {
                         </div>
                     </div>
                     <Lenke target="_blank" href={intlHelper(intl, 'psg.lenkepanel.url')}>
-                        <FormattedMessage id="psg.lenkepanel.text"/>
+                        <FormattedMessage id="psg.lenkepanel.text" />
                     </Lenke>
                 </div>
             </div>
