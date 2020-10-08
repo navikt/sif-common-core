@@ -12,5 +12,7 @@
     "common.fieldvalidation.tall_for_høyt": "Tallet må være mindre eller lik {maks}",
     "common.fieldvalidation.tall_ikke_innenfor_min_maks": "Tallet må være mellom {min} og {maks}",
     "common.fieldvalidation.ugyldig_telefonnummer": "Telefonnummer er ikke gyldig",
-    "common.fieldvalidation.dato_utenfor_gyldig_tidsrom": "Dato er ikkje innanfor gyldig tidsrom"
+    "common.fieldvalidation.dato_utenfor_gyldig_tidsrom": "Dato er ikkje innanfor gyldig tidsrom",
+    "common.fieldvalidation.samtykkeErPåkrevd": "Du må stadfeste at du har lese og forstått pliktene dine",
+    "common.fieldvalidation.bekrefterOpplysningerPåkrevd": "Du må stadfeste opplysningane"
 }

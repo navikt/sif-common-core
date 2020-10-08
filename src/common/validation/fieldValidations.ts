@@ -20,6 +20,8 @@ export enum FieldValidationErrors {
     'tall_ikke_innenfor_min_maks' = 'common.fieldvalidation.tall_ikke_innenfor_min_maks',
     'ugyldig_telefonnummer' = 'common.fieldvalidation.ugyldig_telefonnummer',
     'dato_utenfor_gyldig_tidsrom' = 'common.fieldvalidation.dato_utenfor_gyldig_tidsrom',
+    'samtykkeErPåkrevd' = 'common.fieldvalidation.fieldvalidation.samtykkeErPåkrevd',
+    'bekrefterOpplysningerPåkrevd' = 'common.fieldvalidation.fieldvalidation.bekrefterOpplysningerPåkrevd',
 }
 
 export const fieldIsRequiredError = () => createFieldValidationError(FieldValidationErrors.påkrevd);
@@ -121,6 +123,20 @@ export const validatePhoneNumber = (value: string): FieldValidationResult => {
 export const validateDateInRange = (tidsrom: Partial<DateRange>) => (date: any): FieldValidationResult => {
     if (!datoErInnenforTidsrom(date, tidsrom)) {
         return createFieldValidationError(FieldValidationErrors.dato_utenfor_gyldig_tidsrom);
+    }
+    return undefined;
+};
+
+export const validateSamtykke = (value: boolean) => {
+    if (value !== true) {
+        return createFieldValidationError(FieldValidationErrors.samtykkeErPåkrevd);
+    }
+    return undefined;
+};
+
+export const validateBekrefterOpplysninger = (value: boolean) => {
+    if (value !== true) {
+        return createFieldValidationError(FieldValidationErrors.bekrefterOpplysningerPåkrevd);
     }
     return undefined;
 };
