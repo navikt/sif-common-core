@@ -20,8 +20,8 @@ export enum FieldValidationErrors {
     'tall_ikke_innenfor_min_maks' = 'common.fieldvalidation.tall_ikke_innenfor_min_maks',
     'ugyldig_telefonnummer' = 'common.fieldvalidation.ugyldig_telefonnummer',
     'dato_utenfor_gyldig_tidsrom' = 'common.fieldvalidation.dato_utenfor_gyldig_tidsrom',
-    'samtykkeErPåkrevd' = 'common.fieldvalidation.fieldvalidation.samtykkeErPåkrevd',
-    'bekrefterOpplysningerPåkrevd' = 'common.fieldvalidation.fieldvalidation.bekrefterOpplysningerPåkrevd',
+    'samtykkeErPåkrevd' = 'common.fieldvalidation.samtykkeErPåkrevd',
+    'bekrefterOpplysningerPåkrevd' = 'common.fieldvalidation.bekrefterOpplysningerPåkrevd',
 }
 
 export const fieldIsRequiredError = () => createFieldValidationError(FieldValidationErrors.påkrevd);
