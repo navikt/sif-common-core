@@ -14,5 +14,6 @@
     "common.fieldvalidation.ugyldig_telefonnummer": "Telefonnummer er ikke gyldig",
     "common.fieldvalidation.dato_utenfor_gyldig_tidsrom": "Dato er ikkje innanfor gyldig tidsrom",
     "common.fieldvalidation.samtykkeErPåkrevd": "Du må stadfeste at du har lese og forstått pliktene dine",
-    "common.fieldvalidation.bekrefterOpplysningerPåkrevd": "Du må stadfeste opplysningane"
+    "common.fieldvalidation.bekrefterOpplysningerPåkrevd": "Du må stadfeste opplysningane",
+    "datepicker.invalidFormat": "Ugyldeg dato - format på dato skal vera dd.mm.åååå"
 }
