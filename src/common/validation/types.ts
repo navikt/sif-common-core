@@ -12,3 +12,8 @@ export interface IntlFieldValidationError {
 }
 
 export type FieldValidationResult = IntlFieldValidationError | undefined | void;
+
+export type FormikDatepickerValue = {
+    date: Date | undefined;
+    dateString: string;
+};

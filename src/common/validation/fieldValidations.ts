@@ -1,7 +1,7 @@
 import { YesOrNo } from '../types/YesOrNo';
 import { DateRange, datoErInnenforTidsrom } from '../utils/dateUtils';
 import { hasValue } from '../validation/hasValue';
-import { FieldValidationResult } from '../validation/types';
+import { FieldValidationResult, FormikDatepickerValue } from '../validation/types';
 import { erGyldigNorskOrgnummer } from './erGyldigNorskOrgnummer';
 import { fødselsnummerIsValid, FødselsnummerValidationErrorReason } from './fødselsnummerValidator';
 
@@ -120,7 +120,12 @@ export const validatePhoneNumber = (value: string): FieldValidationResult => {
     return undefined;
 };
 
-export const validateDateInRange = (tidsrom: Partial<DateRange>) => (date: any): FieldValidationResult => {
+const isFormikDatepickerValue = (value: any): value is FormikDatepickerValue => {
+    return value && value.date && value.dateString;
+};
+
+export const validateDateInRange = (tidsrom: Partial<DateRange>) => (value: any): FieldValidationResult => {
+    const date = isFormikDatepickerValue(value) ? value.date : value;
     if (!datoErInnenforTidsrom(date, tidsrom)) {
         return createFieldValidationError(FieldValidationErrors.dato_utenfor_gyldig_tidsrom);
     }
