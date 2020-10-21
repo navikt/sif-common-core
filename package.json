@@ -16,6 +16,7 @@
         "patchit": "npm-run-all build-lib patch do-publish",
         "predeploy": "npm run build-dev-app",
         "test": "jest --maxWorkers=2 --config ./jest/jest.config.js",
+        "test-w": "jest --maxWorkers=2 --config ./jest/jest.config.js --watch",
         "commit": "git-cz"
     },
     "dependencies": {

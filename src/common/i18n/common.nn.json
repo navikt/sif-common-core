@@ -21,6 +21,8 @@
 
     "dataRangeValidation.form.validation.required": "Feltet er påkrevd",
     "dataRangeValidation.form.validation.dateOutsideRange": "Første gyldige dato er {fom}, og siste gyldige dato er {tom}",
+    "dataRangeValidation.form.validation.dateBeforeMinDate": "Første gyldige dato er {fom}",
+    "dataRangeValidation.form.validation.dateAfterMaxDate": "Siste gyldige dato er {tom}",
     "dataRangeValidation.form.validation.fromDateAfterToDate": "Fra-dato må være lik eller før til-dato",
     "dataRangeValidation.form.validation.toDateBeforeFromDate": "Til-dato må være lik eller etter fra-dato",
 
