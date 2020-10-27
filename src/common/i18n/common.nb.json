@@ -9,6 +9,8 @@
     "locale.nb": "Bokmål - norsk",
     "locale.nn": "Nynorsk - norsk",
     "locale.en": "Nynorsk - norsk",
+    "locale.no-NB": "Bokmål - norsk",
+    "locale.no-NN": "Nynorsk - norsk",
 
     "formikValidationErrorSummary.tittel": "Du må rette opp i følgende feil:",
     "formikForm.submitButton.label": "Ok",
