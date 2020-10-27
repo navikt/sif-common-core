@@ -1,3 +1,4 @@
+import { IntlShape } from 'react-intl';
 import { Locale } from '../types/Locale';
 
 const LocaleSessionKey = 'selectedLocale';
@@ -22,4 +23,14 @@ export const getBokmålLocale = () => {
         return 'no-NB';
     }
     return 'nb';
+};
+
+export const getLocaleForApi = ({ locale }: IntlShape): Locale => {
+    switch (locale) {
+        case 'nn':
+        case 'no-NN':
+            return 'nn';
+        default:
+            return 'nb';
+    }
 };
