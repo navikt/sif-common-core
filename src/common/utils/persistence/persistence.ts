@@ -12,8 +12,21 @@ export interface PersistenceConfig {
     url: string;
 }
 
-const dateStringToDateObjectMapper = (_: string, value: string) => {
-    if (moment(value, moment.ISO_8601).isValid()) {
+const isISODateString = (value: any): value is string => {
+    if (value && typeof value === 'string') {
+        const reg = /^\d{4}-\d{2}-\d{2}$/;
+        const match: RegExpMatchArray | null = value.match(reg);
+        return match !== null;
+    } else {
+        return false;
+    }
+};
+
+export const dateStringToDateObjectMapper = (_key: string, value: string) => {
+    if (isISODateString(value)) {
+        return value;
+    }
+    if (!Array.isArray(value) && moment(value, [moment.HTML5_FMT.DATE, 'YYYY-MM-DDTHH:mm:ss.SSSZ'], true).isValid()) {
         return new Date(value);
     }
     return value;
@@ -35,7 +48,7 @@ function persistence<StorageFormat>({ requestConfig, url }: PersistenceConfig): 
         },
         purge: () => {
             return Axios.delete(url, { ...requestConfig, data: {} });
-        }
+        },
     };
 }
 
