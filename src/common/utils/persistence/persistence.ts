@@ -32,7 +32,7 @@ export const dateStringToDateObjectMapper = (_key: string, value: string) => {
     return value;
 };
 
-const storageParser = (storageResponse: string) => {
+export const storageParser = (storageResponse: string) => {
     if (storageResponse) {
         return JSON.parse(storageResponse, dateStringToDateObjectMapper);
     }
