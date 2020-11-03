@@ -15,6 +15,6 @@
     "common.fieldvalidation.dato_utenfor_gyldig_tidsrom": "Dato er ikkje innanfor gyldig tidsrom",
     "common.fieldvalidation.samtykkeErPåkrevd": "Du må stadfeste at du har lese og forstått pliktene dine",
     "common.fieldvalidation.bekrefterOpplysningerPåkrevd": "Du må stadfeste opplysningane",
-    "common.fieldvalidation.dato.ugyldigFormat": "Ugyldig datoformat. Formatet skal være skal være dd.mm.åååå",
-    "datepicker.invalidFormat": "Ugyldeg datoformat. Formatet skal være skal være dd.mm.åååå"
+    "common.fieldvalidation.dato.ugyldigFormat": "Ugyldig datoformat. Formatet må være dd.mm.åååå",
+    "datepicker.invalidFormat": "Ugyldeg datoformat. Formatet må være dd.mm.åååå"
 }
