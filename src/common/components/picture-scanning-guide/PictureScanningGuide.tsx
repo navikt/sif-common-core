@@ -20,13 +20,32 @@ const PictureScanningGuide: React.FunctionComponent = () => {
                 <Undertittel className={bem.element('title')}>
                     <FormattedMessage id="psg.section1.tittel" />
                 </Undertittel>
-                <FormattedMessage tagName="ul" id="psg.section1.liste" values={{ li: (msg) => <li>{msg}</li> }} />
+                <ul>
+                    <li>
+                        <FormattedMessage id="psg.section1.liste.1" />
+                    </li>
+                    <li>
+                        <FormattedMessage id="psg.section1.liste.2" />
+                    </li>
+                    <li>
+                        <FormattedMessage id="psg.section1.liste.3" />
+                    </li>
+                </ul>
 
                 <Undertittel className={bem.element('title')}>
                     <FormattedMessage id="psg.section2.tittel" />
                 </Undertittel>
-
-                <FormattedMessage tagName="ul" id="psg.section2.liste" values={{ li: (msg) => <li>{msg}</li> }} />
+                <ul>
+                    <li>
+                        <FormattedMessage id="psg.section2.liste.1" />
+                    </li>
+                    <li>
+                        <FormattedMessage id="psg.section2.liste.2" />
+                    </li>
+                    <li>
+                        <FormattedMessage id="psg.section2.liste.3" />
+                    </li>
+                </ul>
                 <div className={bem.element('examples')}>
                     <Undertittel tag="h3" className={bem.element('title')}>
                         <FormattedMessage id="psg.icon.heading" />
