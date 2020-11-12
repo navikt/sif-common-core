@@ -6,12 +6,13 @@ import './stepBanner.less';
 
 interface StepBannerProps {
     text: string;
+    tag?: 'h1' | 'h2' | 'h3';
 }
 
 const bem = bemHelper('stepBanner');
-const StepBanner: React.FunctionComponent<StepBannerProps> = ({ text }) => (
+const StepBanner: React.FunctionComponent<StepBannerProps> = ({ text, tag = 'h2' }) => (
     <Banner size="small" className={bem.block}>
-        <Undertittel tag="h2">{text}</Undertittel>
+        <Undertittel tag={tag}>{text}</Undertittel>
     </Banner>
 );
 
