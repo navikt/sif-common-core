@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import classnames from 'classnames';
 import { Knapp } from 'nav-frontend-knapper';
 import Modal, { ModalProps } from 'nav-frontend-modal';
-import { Systemtittel } from 'nav-frontend-typografi';
+import { Normaltekst, Systemtittel } from 'nav-frontend-typografi';
 import bemUtils from '../../../utils/bemUtils';
 import intlHelper from '../../../utils/intlUtils';
 import Knapperad from '../../knapperad/Knapperad';
@@ -31,7 +31,7 @@ const BekreftDialog: React.FunctionComponent<Props> = (props) => {
             {...modalProps}
             className={classnames(bem.block, størrelse ? bem.modifier(`size-${størrelse}`) : undefined)}>
             {props.isOpen && (
-                <>
+                <Normaltekst>
                     {tittel && <Systemtittel className="blokk-s">{tittel}</Systemtittel>}
                     <div className="blokk-m">{children}</div>
                     <Knapperad>
@@ -45,7 +45,7 @@ const BekreftDialog: React.FunctionComponent<Props> = (props) => {
                             {avbrytLabel || intlHelper(intl, 'komponent.bekreftDialog.avbrytLabel')}
                         </Knapp>
                     </Knapperad>
-                </>
+                </Normaltekst>
             )}
         </Modal>
     );
