@@ -7,6 +7,7 @@ import './page.less';
 interface PageProps {
     className?: string;
     title: string;
+    mainAriaLabel?: string;
     id?: string;
     topContentRenderer?: () => React.ReactElement<any>;
 }
@@ -17,10 +18,10 @@ class Page extends React.Component<PageProps> {
     }
 
     render() {
-        const { className, title, id = 'pageMainContent', topContentRenderer, children } = this.props;
+        const { className, title, mainAriaLabel, id = 'pageMainContent', topContentRenderer, children } = this.props;
         return (
             <DocumentTitle title={title}>
-                <div role="main" aria-label={title} id={id}>
+                <div role={mainAriaLabel ? 'main' : undefined} aria-label={mainAriaLabel} id={id}>
                     {topContentRenderer && topContentRenderer()}
                     <div className={`page ${className}`}>{children}</div>
                 </div>
