@@ -14,6 +14,7 @@ import './backLink.less';
 interface BackLinkProps {
     className?: string;
     href: string;
+    ariaLabel?: string;
     onClick?: (href: string, history: History, event: React.SyntheticEvent) => void;
 }
 
@@ -23,6 +24,7 @@ const BackLink: React.FunctionComponent<BackLinkProps & RouteComponentProps> = (
     href,
     history,
     onClick,
+    ariaLabel,
 }) => {
     const navigate = () => history.push(href);
 
@@ -38,7 +40,7 @@ const BackLink: React.FunctionComponent<BackLinkProps & RouteComponentProps> = (
     return (
         <div className={`${bem.block} ${className}`} onClick={handleOnClick}>
             <Chevron className={bem.element('chevron')} type="venstre" />
-            <Lenke className={bem.element('link')} href={href}>
+            <Lenke className={bem.element('link')} href={href} ariaLabel={ariaLabel}>
                 <FormattedMessage id="backlink.label" />
             </Lenke>
         </div>
