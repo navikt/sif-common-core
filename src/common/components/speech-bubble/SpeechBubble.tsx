@@ -9,7 +9,7 @@ import './speechBubble.less';
 
 const bem = bemHelper('speechBubble');
 
-interface SpeechBubbleProps {
+export interface SpeechBubbleProps {
     strongText: string;
     normalText: string;
     titleTag?: 'h1' | 'h2' | 'h3' | string;
