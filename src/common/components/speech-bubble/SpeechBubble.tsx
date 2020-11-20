@@ -11,7 +11,7 @@ const bem = bemHelper('speechBubble');
 
 export interface SpeechBubbleProps {
     strongText: string;
-    normalText: string;
+    normalText: React.ReactNode;
     titleTag?: 'h1' | 'h2' | 'h3' | string;
     bottomContent?: React.ReactNode;
 }
