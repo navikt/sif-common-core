@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { prettifyDateExtended } from '../utils/dateUtils';
 
 export enum DateRangeValidationErrorKeys {
@@ -15,7 +15,7 @@ const validateDateInRange = (date: Date | undefined, minDate?: Date, maxDate?: D
             key: 'dataRangeValidation.form.validation.required',
         };
     }
-    if (minDate && maxDate && !moment(date).isBetween(minDate, maxDate, 'day', '[]')) {
+    if (minDate && maxDate && !dayjs(date).isBetween(minDate, maxDate, 'day', '[]')) {
         return {
             key: 'dataRangeValidation.form.validation.dateOutsideRange',
             values: {
@@ -24,7 +24,7 @@ const validateDateInRange = (date: Date | undefined, minDate?: Date, maxDate?: D
             },
         };
     }
-    if (minDate && moment(date).isBefore(minDate, 'day')) {
+    if (minDate && dayjs(date).isBefore(minDate, 'day')) {
         return {
             key: 'dataRangeValidation.form.validation.dateBeforeMinDate',
             values: {
@@ -32,7 +32,7 @@ const validateDateInRange = (date: Date | undefined, minDate?: Date, maxDate?: D
             },
         };
     }
-    if (maxDate && moment(date).isAfter(maxDate, 'day')) {
+    if (maxDate && dayjs(date).isAfter(maxDate, 'day')) {
         return {
             key: 'dataRangeValidation.form.validation.dateAfterMaxDate',
             values: {
@@ -53,7 +53,7 @@ const validateFromDate = (
     if (error !== undefined) {
         return error;
     }
-    if (toDate && moment(date).isAfter(toDate, 'day')) {
+    if (toDate && dayjs(date).isAfter(toDate, 'day')) {
         return {
             key: 'dataRangeValidation.form.validation.fromDateAfterToDate',
         };
@@ -71,7 +71,7 @@ const validateToDate = (
     if (error !== undefined) {
         return error;
     }
-    if (fromDate && moment(date).isBefore(fromDate, 'day')) {
+    if (fromDate && dayjs(date).isBefore(fromDate, 'day')) {
         return {
             key: 'dataRangeValidation.form.validation.toDateBeforeFromDate',
         };
