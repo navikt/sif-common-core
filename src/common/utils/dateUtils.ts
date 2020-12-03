@@ -1,4 +1,14 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import isBetween from 'dayjs/plugin/isBetween';
+import utc from 'dayjs/plugin/utc';
+
+dayjs.extend(isSameOrBefore);
+dayjs.extend(isSameOrAfter);
+dayjs.extend(isBetween);
+dayjs.extend(utc);
+
 import { ApiStringDate, apiDateFormat } from '../types/ApiStringDate';
 
 const prettyDateFormat = 'DD.MM.YYYY';
@@ -6,49 +16,49 @@ const prettyDateFormatExtended = 'D. MMM YYYY';
 const prettyDateFormatFull = 'D. MMMM YYYY';
 
 export const formatDateToApiFormat = (date: Date): ApiStringDate => {
-    const apiFormattedDate = moment(date).format(apiDateFormat);
+    const apiFormattedDate = dayjs(date).format(apiDateFormat);
     return apiFormattedDate;
 };
-export const prettifyDate = (date: Date): string => moment(date).format(prettyDateFormat);
-export const prettifyDateExtended = (date: Date) => moment(date).format(prettyDateFormatExtended);
-export const prettifyDateFull = (date: Date) => moment(date).format(prettyDateFormatFull);
+export const prettifyDate = (date: Date): string => dayjs(date).format(prettyDateFormat);
+export const prettifyDateExtended = (date: Date) => dayjs(date).format(prettyDateFormatExtended);
+export const prettifyDateFull = (date: Date) => dayjs(date).format(prettyDateFormatFull);
 
-export const apiStringDateToDate = (date: ApiStringDate): Date => moment.utc(date, apiDateFormat).toDate();
+export const apiStringDateToDate = (date: ApiStringDate): Date => dayjs.utc(date, apiDateFormat).toDate();
 
-export const isMoreThan3YearsAgo = (date: Date) => moment(date).isBefore(date3YearsAgo);
+export const isMoreThan3YearsAgo = (date: Date) => dayjs(date).isBefore(date3YearsAgo);
 
-export const dateToISOFormattedDateString = (date?: Date) => (date ? moment(date).format(apiDateFormat) : undefined);
+export const dateToISOFormattedDateString = (date?: Date) => (date ? dayjs(date).format(apiDateFormat) : undefined);
 
-export const date10MonthsAgo = moment().subtract(10, 'months').startOf('day').toDate();
+export const date10MonthsAgo = dayjs().subtract(10, 'month').startOf('day').toDate();
 
-export const date1YearAgo = moment().subtract(1, 'years').startOf('day').toDate();
+export const date1YearAgo = dayjs().subtract(1, 'year').startOf('day').toDate();
 
-export const date4YearsAgo = moment().subtract(4, 'years').startOf('day').toDate();
+export const date4YearsAgo = dayjs().subtract(4, 'year').startOf('day').toDate();
 
-export const date3YearsAgo = moment().subtract(3, 'years').startOf('day').toDate();
+export const date3YearsAgo = dayjs().subtract(3, 'year').startOf('day').toDate();
 
-export const date4WeeksAgo = moment().subtract(4, 'weeks').startOf('day').toDate();
+export const date4WeeksAgo = dayjs().subtract(4, 'week').startOf('day').toDate();
 
-export const date1YearFromNow = moment().add(1, 'years').endOf('day').toDate();
+export const date1YearFromNow = dayjs().add(1, 'year').endOf('day').toDate();
 
-export const dateToday = moment().toDate();
+export const dateToday = dayjs().toDate();
 
 export const sortDateRange = (d1: DateRange, d2: DateRange): number => {
-    if (moment(d1.from).isSameOrBefore(d2.from)) {
+    if (dayjs(d1.from).isSameOrBefore(d2.from)) {
         return -1;
     }
     return 1;
 };
 
 export const sortDateRangeByToDate = (d1: DateRange, d2: DateRange): number => {
-    if (moment(d1.to).isSameOrBefore(d2.to)) {
+    if (dayjs(d1.to).isSameOrBefore(d2.to)) {
         return -1;
     }
     return 1;
 };
 
 export const sortOpenDateRange = (d1: OpenDateRange, d2: OpenDateRange): number => {
-    if (moment(d1.from).isSameOrBefore(d2.from)) {
+    if (dayjs(d1.from).isSameOrBefore(d2.from)) {
         return -1;
     }
     return 1;
@@ -70,9 +80,9 @@ export const dateRangesCollide = (ranges: DateRange[], fromDateCanBeSameAsPrevio
         const hasOverlap = ranges.find((d, idx) => {
             if (idx < sortedDates.length - 1) {
                 if (fromDateCanBeSameAsPreviousToDate) {
-                    return moment(d.to).isAfter(sortedDates[idx + 1].from);
+                    return dayjs(d.to).isAfter(sortedDates[idx + 1].from);
                 } else {
-                    return moment(d.to).isSameOrAfter(sortedDates[idx + 1].from);
+                    return dayjs(d.to).isSameOrAfter(sortedDates[idx + 1].from);
                 }
             }
             return false;
@@ -85,7 +95,7 @@ export const dateRangesCollide = (ranges: DateRange[], fromDateCanBeSameAsPrevio
 export const datesCollideWithDateRanges = (dates: Date[], ranges: DateRange[]): boolean => {
     if (ranges.length > 0 && dates.length > 0) {
         return dates.some((d) => {
-            return ranges.some((range) => moment(d).isSameOrAfter(range.from) && moment(d).isSameOrBefore(range.to));
+            return ranges.some((range) => dayjs(d).isSameOrAfter(range.from) && dayjs(d).isSameOrBefore(range.to));
         });
     }
     return false;
@@ -96,7 +106,7 @@ export const dateRangesHasFromDateEqualPreviousRangeToDate = (ranges: DateRange[
         const sortedDates = ranges.sort(sortDateRange);
         const hasStartDateEqualPreviousRangeToDate = ranges.find((d, idx) => {
             if (idx > 0) {
-                return moment(d.from).isSame(sortedDates[idx - 1].to, 'day');
+                return dayjs(d.from).isSame(sortedDates[idx - 1].to, 'day');
             }
             return false;
         });
@@ -114,8 +124,8 @@ export const dateRangesExceedsRange = (ranges: DateRange[], allowedRange: DateRa
     const to = sortedRanges[sortedRanges.length - 1].to;
 
     if (
-        !moment(from).isBetween(allowedRange.from, allowedRange.to, 'day', '[]') ||
-        !moment(to).isBetween(allowedRange.from, allowedRange.to, 'day', '[]')
+        !dayjs(from).isBetween(allowedRange.from, allowedRange.to, 'day', '[]') ||
+        !dayjs(to).isBetween(allowedRange.from, allowedRange.to, 'day', '[]')
     ) {
         return true;
     }
@@ -138,13 +148,13 @@ export const sortItemsByFom = (a: ItemWithFom, b: ItemWithFom) => sortOpenDateRa
 
 export const datoErInnenforTidsrom = (dato: Date, range: Partial<DateRange>): boolean => {
     if (range.from && range.to) {
-        return moment(dato).isBetween(range.from, range.to, 'days', '[]');
+        return dayjs(dato).isBetween(range.from, range.to, 'day', '[]');
     }
     if (range.from) {
-        return moment(dato).isSameOrAfter(range.from);
+        return dayjs(dato).isSameOrAfter(range.from);
     }
     if (range.to) {
-        return moment(dato).isSameOrBefore(range.to);
+        return dayjs(dato).isSameOrBefore(range.to);
     }
     return true;
 };

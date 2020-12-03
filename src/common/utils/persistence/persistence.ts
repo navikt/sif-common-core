@@ -1,5 +1,10 @@
 import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
+dayjs.extend(customParseFormat);
+
+const dateRegExp = new RegExp(/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/);
 
 export interface PersistenceInterface<StorageFormat, ResponseFormat = any> {
     persist: (data: StorageFormat) => Promise<AxiosResponse<ResponseFormat>>;
@@ -22,11 +27,15 @@ const isISODateString = (value: any): value is string => {
     }
 };
 
+const isDateStringToBeParse = (value: string): boolean => {
+    return dateRegExp.test(value);
+};
+
 export const dateStringToDateObjectMapper = (_key: string, value: string) => {
     if (isISODateString(value)) {
         return value;
     }
-    if (!Array.isArray(value) && moment(value, [moment.HTML5_FMT.DATE, 'YYYY-MM-DDTHH:mm:ss.SSSZ'], true).isValid()) {
+    if (!Array.isArray(value) && isDateStringToBeParse(value)) {
         return new Date(value);
     }
     return value;
