@@ -31,7 +31,7 @@ const BekreftDialog: React.FunctionComponent<Props> = (props) => {
             {...modalProps}
             className={classnames(bem.block, størrelse ? bem.modifier(`size-${størrelse}`) : undefined)}>
             {props.isOpen && (
-                <Normaltekst>
+                <Normaltekst tag="div">
                     {tittel && <Systemtittel className="blokk-s">{tittel}</Systemtittel>}
                     <div className="blokk-m">{children}</div>
                     <Knapperad>

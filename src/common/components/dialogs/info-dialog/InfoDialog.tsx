@@ -5,7 +5,7 @@ import './infoDialog.less';
 
 const InfoDialog: React.FunctionComponent<ModalProps> = ({ children, ...props }) => (
     <Modal className={`infoDialog ${props.className}`} {...props}>
-        <Normaltekst>{children}</Normaltekst>
+        <Normaltekst tag="div">{children}</Normaltekst>
     </Modal>
 );
 
