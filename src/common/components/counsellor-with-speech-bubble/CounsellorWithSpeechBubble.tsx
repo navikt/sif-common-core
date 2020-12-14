@@ -15,10 +15,10 @@ const CounsellorWithSpeechBubble: React.FunctionComponent<CounsellorWithSpeechBu
     normalText,
     bottomContent,
 }) => (
-    <div className={bem.block}>
-        <SpeechBubble strongText={strongText} normalText={normalText} bottomContent={bottomContent} />
+    <section className={bem.block}>
+        <SpeechBubble strongText={strongText} normalText={normalText} bottomContent={bottomContent} titleTag="h2" />
         <Counsellor theme="dark" />
-    </div>
+    </section>
 );
 
 export default CounsellorWithSpeechBubble;
