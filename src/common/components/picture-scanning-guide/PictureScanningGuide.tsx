@@ -32,7 +32,7 @@ const PictureScanningGuide: React.FunctionComponent = () => {
                     </li>
                 </ul>
 
-                <Undertittel className={bem.element('title')}>
+                <Undertittel tag="h3" className={bem.element('title')}>
                     <FormattedMessage id="psg.section2.tittel" />
                 </Undertittel>
                 <ul>
