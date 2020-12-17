@@ -12,6 +12,8 @@
     "locale.no-NB": "Bokmål - norsk",
     "locale.no-NN": "Nynorsk - norsk",
 
+    "page.defaultMainRoleLabel": "Hovedinnhold",
+
     "formikValidationErrorSummary.tittel": "Du må rette opp i følgende feil:",
     "formikForm.submitButton.label": "Ok",
     "formikForm.cancelButton.label": "Avbryt",
