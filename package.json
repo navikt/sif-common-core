@@ -147,9 +147,6 @@
         "type": "git",
         "url": "git+https://github.com/navikt/sif-common-core.git"
     },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
     "author": "navikt",
     "license": "MIT",
     "bugs": {
