@@ -1,8 +1,6 @@
 import React from 'react';
 import { Collapse } from 'react-collapse';
-
 import classNames from 'classnames';
-
 import './collapsableContainer.less';
 
 export interface Props {
@@ -12,12 +10,7 @@ export interface Props {
     animated?: boolean;
 }
 
-const CollapseContainer: React.StatelessComponent<Props> = ({
-    children,
-    animated = true,
-    isOpen = false,
-    ariaLive = 'off',
-}) => {
+const CollapseContainer = ({ children, animated = true, isOpen = false, ariaLive = 'off' }: Props) => {
     const content = <div aria-live={ariaLive}>{isOpen ? <div>{children}</div> : <div />}</div>;
     if (!animated) {
         return content;

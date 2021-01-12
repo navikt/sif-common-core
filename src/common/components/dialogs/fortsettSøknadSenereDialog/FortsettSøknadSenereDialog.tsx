@@ -12,7 +12,7 @@ export interface Props {
     onFortsettSøknad: () => void;
 }
 
-const FortsettSøknadSenereDialog = (props) => {
+const FortsettSøknadSenereDialog = (props: Props) => {
     const intl = useIntl();
     const { synlig, onFortsettSøknad, onFortsettSøknadSenere } = props;
     return (

@@ -6,7 +6,7 @@ interface Props {
     countryCode: string;
 }
 
-const CountryName = ({ countryCode }) => {
+const CountryName = ({ countryCode }: Props) => {
     const intl = useIntl();
     return <>{getCountryName(countryCode, intl.locale)}</>;
 };

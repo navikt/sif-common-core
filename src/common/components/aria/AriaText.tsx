@@ -6,7 +6,7 @@ export interface AriaTextProps {
     tag?: string;
 }
 
-const AriaText: React.StatelessComponent<AriaTextProps> = ({ id, children, tag }) => {
+const AriaText = ({ id, children, tag }: AriaTextProps) => {
     const tagName = tag || 'span';
     return React.createElement(tagName, { id, className: 'sr-only' }, children);
 };

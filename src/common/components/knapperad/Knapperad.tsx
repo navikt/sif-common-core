@@ -9,7 +9,7 @@ export interface Props {
 }
 const bem = bemUtils('knapperad');
 
-const Knapperad: React.StatelessComponent<Props> = ({ children, align = 'center', layout = 'normal' }) => {
+const Knapperad = ({ children, align = 'center', layout = 'normal' }: Props) => {
     const cls = bem.classNames(bem.block, `${bem.modifier(align)}`, `${bem.modifier(layout)}`);
     return (
         <div className={cls}>

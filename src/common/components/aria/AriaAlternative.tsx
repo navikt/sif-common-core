@@ -7,7 +7,7 @@ export interface AriaAlternativeTextProps {
     visibleText: React.ReactNode;
 }
 
-const AriaAlternative: React.StatelessComponent<AriaAlternativeTextProps> = ({ ariaText, visibleText }) => {
+const AriaAlternative = ({ ariaText, visibleText }: AriaAlternativeTextProps) => {
     if (!ariaText) {
         return <>{visibleText}</>;
     }

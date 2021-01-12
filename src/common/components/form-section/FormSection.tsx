@@ -10,11 +10,12 @@ interface Props {
     title: string;
     titleTag?: string;
     titleIcon?: React.ReactNode;
+    children: React.ReactNode;
 }
 
 const bem = bemUtils('formSection');
 
-const FormSection = ({ title, titleTag, titleIcon, children }) => (
+const FormSection = ({ title, titleTag, titleIcon, children }: Props) => (
     <section className={bem.block}>
         <Undertittel tag={titleTag} className={bem.element('title')}>
             {titleIcon && <span className={bem.element('titleIcon')}>{titleIcon}</span>}

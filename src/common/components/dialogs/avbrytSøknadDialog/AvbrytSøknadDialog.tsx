@@ -10,7 +10,7 @@ export interface Props {
     onFortsettSøknad: () => void;
 }
 
-const AvbrytSøknadDialog = (props) => {
+const AvbrytSøknadDialog = (props: Props) => {
     const intl = useIntl();
     const { synlig, onFortsettSøknad, onAvbrytSøknad } = props;
     return (

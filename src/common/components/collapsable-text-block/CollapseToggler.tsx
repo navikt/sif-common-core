@@ -1,9 +1,6 @@
 import React from 'react';
-
 import NavFrontendChevron from 'nav-frontend-chevron';
-
 import bemUtils from '../../utils/bemUtils';
-
 import './collapseToggler.less';
 
 interface Props {
@@ -15,8 +12,7 @@ interface Props {
 
 const bem = bemUtils('collapseToggler');
 
-const CollapseToggler: React.StatelessComponent<Props> = (props) => {
-    const { isOpen = false, children, onToggle, contentId } = props;
+const CollapseToggler = ({ isOpen = false, children, onToggle, contentId }: Props) => {
     return (
         <button
             className={bem.block}

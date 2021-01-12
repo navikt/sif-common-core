@@ -4,7 +4,7 @@ interface Props {
     text?: string;
 }
 
-const TextareaSummary: React.StatelessComponent<Props> = ({ text }) => {
+const TextareaSummary = ({ text }: Props) => {
     if (text && text.trim().length > 0) {
         return (
             <div

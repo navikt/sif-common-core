@@ -7,10 +7,11 @@ const bem = bemUtils('dialogFormWrapper');
 export type DialogFormWrapperWidths = 'narrow' | 'wide';
 
 interface Props {
+    children: React.ReactNode;
     width?: DialogFormWrapperWidths;
 }
 
-const DialogFormWrapper = ({ width = 'narrow', children }) => (
+const DialogFormWrapper = ({ width = 'narrow', children }: Props) => (
     <div className={bem.classNames(bem.block, bem.modifier(width))}>{children}</div>
 );
 
