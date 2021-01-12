@@ -11,7 +11,7 @@ interface Props {
     className?: string;
 }
 
-const CustomSVG: React.FunctionComponent<Props> = ({ iconRef, size, className, ...other }) => {
+const CustomSVG = ({ iconRef, size, className, ...other }: Props) => {
     const viewBox = { 'view-box': iconRef.viewBox };
     return (
         <svg className={className} height={size} width={size} {...viewBox} {...other} focusable={false}>

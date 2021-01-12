@@ -6,7 +6,7 @@ interface Props {
     countryCode: string;
 }
 
-const CountryName: React.FunctionComponent<Props> = ({ countryCode }) => {
+const CountryName = ({ countryCode }) => {
     const intl = useIntl();
     return <>{getCountryName(countryCode, intl.locale)}</>;
 };

@@ -4,13 +4,13 @@ import Banner from '../../components/banner/Banner';
 import bemHelper from '../../utils/bemUtils';
 import './stepBanner.less';
 
-interface StepBannerProps {
+interface Props {
     text: string;
     tag?: 'h1' | 'h2' | 'h3';
 }
 
 const bem = bemHelper('stepBanner');
-const StepBanner: React.FunctionComponent<StepBannerProps> = ({ text, tag = 'h2' }) => (
+const StepBanner = ({ text, tag = 'h2' }: Props) => (
     <Banner size="small" className={bem.block}>
         <Undertittel tag={tag}>{text}</Undertittel>
     </Banner>

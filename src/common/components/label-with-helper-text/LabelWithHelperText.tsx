@@ -1,14 +1,12 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-
 import bemUtils from '../../utils/bemUtils';
 import intlHelper from '../../utils/intlUtils';
 import HelperTextButton from '../helper-text-button/HelperTextButton';
 import HelperTextPanel from '../helper-text-panel/HelperTextPanel';
-
 import './labelWithHelperText.less';
 
-interface LabelWithHelperText {
+interface Props {
     children: React.ReactNode;
     helperText: string;
     htmlFor?: string;
@@ -18,13 +16,7 @@ interface LabelWithHelperText {
 
 const bem = bemUtils('labelWithHelperText');
 
-const LabelWithHelperText: React.FunctionComponent<LabelWithHelperText> = ({
-    children,
-    helperText,
-    htmlFor,
-    showByDefault,
-    tag = 'label',
-}) => {
+const LabelWithHelperText = ({ children, helperText, htmlFor, showByDefault, tag = 'label' }: Props) => {
     const [showHelperText, setShowHelperText] = React.useState(showByDefault === true);
     const intl = useIntl();
     const ariaLabel = intlHelper(intl, showHelperText ? 'hjelpetekst.skjul' : 'hjelpetekst.vis');

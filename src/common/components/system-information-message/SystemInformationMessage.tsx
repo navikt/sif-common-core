@@ -1,13 +1,10 @@
 import React from 'react';
-
 import './systemInformationMessage.less';
 
-interface SystemInformationMessageProps {
+interface Props {
     message: string;
 }
 
-const SystemInformationMessage: React.FunctionComponent<SystemInformationMessageProps> = ({ message }) => (
-    <div className="systemInformationMessage">{message}</div>
-);
+const SystemInformationMessage = ({ message }: Props) => <div className="systemInformationMessage">{message}</div>;
 
 export default SystemInformationMessage;

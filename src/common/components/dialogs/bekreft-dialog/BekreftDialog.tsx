@@ -23,7 +23,7 @@ export interface Props extends ModalProps {
     størrelse?: '30';
 }
 const bem = bemUtils('bekreftDialog');
-const BekreftDialog: React.FunctionComponent<Props> = (props) => {
+const BekreftDialog = (props) => {
     const intl = useIntl();
     const { tittel, onAvbryt, onBekreft, avbrytLabel, bekreftLabel, children, størrelse, ...modalProps } = props;
     return (

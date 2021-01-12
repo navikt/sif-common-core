@@ -31,7 +31,7 @@ const renderMenuItem = (intl: IntlShape, locale: Locale) => {
     );
 };
 
-const LanguageToggle: React.StatelessComponent<Props> = ({ locale, toggle: toggleLanguage }) => {
+const LanguageToggle = ({ locale, toggle: toggleLanguage }: Props) => {
     const selectableOtherMenuLanguages: Locale[] = [...AvailableLocales].filter((code) => code !== locale) as Locale[];
     const intl = useIntl();
 

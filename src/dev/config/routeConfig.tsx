@@ -32,9 +32,7 @@ export const routes: RouteConfig[] = [
     {
         path: 'components',
         title: 'Components',
-        renderContent: () => (
-            <ComponentsView />
-        ),
+        renderContent: () => <ComponentsView />,
     },
 ];
 

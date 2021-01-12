@@ -4,16 +4,17 @@ import './box.less';
 
 export type BoxMargin = 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'none';
 
-interface BoxProps {
+interface Props {
     margin?: BoxMargin;
     padBottom?: BoxMargin;
     textAlignCenter?: boolean;
     className?: string;
+    children: React.ReactNode;
 }
 
 const bem = bemHelper('box');
 
-const Box: React.FunctionComponent<BoxProps> = ({ margin, padBottom, className, textAlignCenter, children }) => {
+const Box = ({ margin, padBottom, className, textAlignCenter, children }: Props) => {
     const classNames = bem.classNames(
         bem.block,
         bem.modifierConditional(margin, margin !== undefined),

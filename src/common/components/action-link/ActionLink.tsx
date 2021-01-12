@@ -6,6 +6,7 @@ interface Props {
     className?: string;
     onClick: () => void;
     ariaLabel?: string;
+    children: React.ReactNode;
 }
 
 const stopClickEvent = (evt: React.MouseEvent<HTMLAnchorElement>) => {
@@ -13,7 +14,7 @@ const stopClickEvent = (evt: React.MouseEvent<HTMLAnchorElement>) => {
     evt.preventDefault();
 };
 
-const ActionLink: React.FunctionComponent<Props> = ({ onClick, children, className, ariaLabel }) => {
+const ActionLink = ({ onClick, children, className, ariaLabel }: Props) => {
     return (
         <Lenke
             className={className}

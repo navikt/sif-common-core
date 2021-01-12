@@ -1,10 +1,7 @@
 import React from 'react';
-
 import { Element, Normaltekst as NormalText } from 'nav-frontend-typografi';
-
 import Box from '../../components/box/Box';
 import bemHelper from '../../utils/bemUtils';
-
 import './speechBubble.less';
 
 const bem = bemHelper('speechBubble');
@@ -16,12 +13,7 @@ export interface SpeechBubbleProps {
     bottomContent?: React.ReactNode;
 }
 
-const SpeechBubble: React.FunctionComponent<SpeechBubbleProps> = ({
-    titleTag,
-    strongText,
-    normalText,
-    bottomContent,
-}) => (
+const SpeechBubble = ({ titleTag, strongText, normalText, bottomContent }: SpeechBubbleProps) => (
     <div className={bem.block}>
         <Element tag={titleTag} className={bem.element('strongText')}>
             {strongText}

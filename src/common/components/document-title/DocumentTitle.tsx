@@ -1,12 +1,12 @@
 import React from 'react';
-
 import useDocumentTitle from '../../hooks/useDocumentTitle';
 
-interface DocumentTitleProps {
+interface Props {
     title: string;
+    children: React.ReactNode;
 }
 
-const DocumentTitle: React.FunctionComponent<DocumentTitleProps> = ({ title, children }) => {
+const DocumentTitle = ({ title, children }: Props) => {
     useDocumentTitle(title);
     return <>{children}</>;
 };

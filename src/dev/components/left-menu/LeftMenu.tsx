@@ -6,9 +6,9 @@ import { isActiveRoute, routes } from '../../config/routeConfig';
 
 const lenkeBem = bemUtils('lenke');
 
-const LeftMenu: React.FunctionComponent = () => {
+const LeftMenu = () => {
     const {
-        location: { pathname }
+        location: { pathname },
     } = useHistory();
     return (
         <div className="leftMenu">
