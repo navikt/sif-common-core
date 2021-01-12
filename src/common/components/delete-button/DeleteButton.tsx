@@ -1,18 +1,19 @@
 import React from 'react';
 import bemHelper from '../../utils/bemUtils';
+import ActionLink from '../action-link/ActionLink';
 import Trashcan from './TrashcanSvg';
 import './deleteButton.less';
-import ActionLink from '../action-link/ActionLink';
 
-interface DeleteButtonProps {
+interface Props {
     ariaLabel: string;
     useTrashcan?: boolean;
+    children?: React.ReactNode;
     onClick: (e?: React.SyntheticEvent) => void;
 }
 
 const bem = bemHelper('deleteButton');
 
-const DeleteButton: React.FunctionComponent<DeleteButtonProps> = ({ ariaLabel, useTrashcan = true, onClick }) => {
+const DeleteButton = ({ ariaLabel, useTrashcan = true, onClick, children }: Props) => {
     return useTrashcan ? (
         <button
             type="button"
@@ -26,7 +27,7 @@ const DeleteButton: React.FunctionComponent<DeleteButtonProps> = ({ ariaLabel, u
         </button>
     ) : (
         <ActionLink onClick={onClick} ariaLabel={ariaLabel}>
-            Fjern
+            {children || ' Fjern'}
         </ActionLink>
     );
 };

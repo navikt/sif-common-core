@@ -5,10 +5,11 @@ import { appMessages } from './messages';
 
 export interface IntlProviderProps {
     locale: string;
+    children: React.ReactNode;
     onError?: (error: any) => void;
 }
 
-const AppIntlProvider: React.FunctionComponent<IntlProviderProps> = ({ locale, onError, children }) => {
+const AppIntlProvider = ({ locale, onError, children }: IntlProviderProps) => {
     const messages = locale === 'nb' ? appMessages.nb : appMessages.nn;
     const localeToUse = locale === 'nb' ? getBokmålLocale() : getNynorskLocale();
     return (

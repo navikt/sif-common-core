@@ -1,19 +1,17 @@
 import React from 'react';
-
 import bemUtils from '../../utils/bemUtils';
 import HelperTextIcon from '../helper-text-icon/HelperTextIcon';
-
 import './helperTextButton.less';
 
 const bem = bemUtils('helperTextButton');
 
-interface HelperTextButtonProps {
+interface Props {
     onClick: () => void;
     ariaLabel: string;
     ariaPressed: boolean;
 }
 
-const HelperTextButton: React.FunctionComponent<HelperTextButtonProps> = ({ onClick, ariaLabel, ariaPressed }) => (
+const HelperTextButton = ({ onClick, ariaLabel, ariaPressed }: Props) => (
     <button
         type="button"
         className={bem.block}

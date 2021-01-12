@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HelperTextIcon: React.FunctionComponent = () => (
+const HelperTextIcon = () => (
     <svg width="14" height="14" viewBox="0 0 7 14" focusable={false}>
         <title>Hjelpetekst</title>
         <g fill="#3E3832" fillRule="evenodd">

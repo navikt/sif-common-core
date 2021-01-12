@@ -8,7 +8,7 @@ interface Props {
     filesThatDidntGetUploaded: File[];
 }
 
-const FileUploadErrors: React.FunctionComponent<Props> = ({ filesThatDidntGetUploaded }: Props) => {
+const FileUploadErrors = ({ filesThatDidntGetUploaded }: Props) => {
     if (filesThatDidntGetUploaded.length === 0) {
         return null;
     }

@@ -1,14 +1,10 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-
 import { History } from 'history';
-
 import Chevron from 'nav-frontend-chevron';
 import Lenke from 'nav-frontend-lenker';
-
 import bemUtils from '../../utils/bemUtils';
-
 import './backLink.less';
 
 interface BackLinkProps {
@@ -18,14 +14,9 @@ interface BackLinkProps {
     onClick?: (href: string, history: History, event: React.SyntheticEvent) => void;
 }
 
+type Props = BackLinkProps & RouteComponentProps;
 const bem = bemUtils('backLink');
-const BackLink: React.FunctionComponent<BackLinkProps & RouteComponentProps> = ({
-    className,
-    href,
-    history,
-    onClick,
-    ariaLabel,
-}) => {
+const BackLink = ({ className, href, history, onClick, ariaLabel }: Props) => {
     const navigate = () => history.push(href);
 
     const handleOnClick = (event: React.SyntheticEvent) => {

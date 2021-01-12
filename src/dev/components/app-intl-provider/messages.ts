@@ -8,15 +8,15 @@ const pictureScanningNn = require('common/components/picture-scanning-guide/pict
 const bokmålstekster = {
     ...validationMessagesNb,
     ...commonMessagesNb,
-    ...pictureScanningNb
+    ...pictureScanningNb,
 };
 const nynorsktekster = {
     ...validationMessagesNn,
     ...commonMessagesNn,
-    ...pictureScanningNn
+    ...pictureScanningNn,
 };
 
 export const appMessages = {
     nb: bokmålstekster,
-    nn: nynorsktekster
+    nn: nynorsktekster,
 };

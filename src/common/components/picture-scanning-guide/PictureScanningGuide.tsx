@@ -4,14 +4,14 @@ import Lenke from 'nav-frontend-lenker';
 import { Undertittel } from 'nav-frontend-typografi';
 import bemHelper from '../../utils/bemUtils';
 import intlHelper from '../../utils/intlUtils';
+import ExpandableInfo from '../expandable-content/ExpandableInfo';
 import ScanningIcon from '../scanning-icon/ScanningIcon';
 import PictureScanningExample from './PictureScanningExample';
-import ExpandableInfo from '../expandable-content/ExpandableInfo';
 import './pictureScanningGuide.less';
 
 const bem = bemHelper('pictureScanningGuide');
 
-const PictureScanningGuide: React.FunctionComponent = () => {
+const PictureScanningGuide = () => {
     const intl = useIntl();
     const svgIconHeight = 100;
     return (

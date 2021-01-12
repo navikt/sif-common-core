@@ -7,15 +7,12 @@ import DeleteButton from '../delete-button/DeleteButton';
 import LoadingSpinner from '../loading-spinner/LoadingSpinner';
 import UnstyledList from '../unstyled-list/UnstyledList';
 
-interface AttachmentListWithDeletionProps {
+interface Props {
     attachments: Attachment[];
     onRemoveAttachmentClick: (attachment: Attachment) => void;
 }
 
-const AttachmentListWithDeletion: React.FunctionComponent<AttachmentListWithDeletionProps> = ({
-    attachments,
-    onRemoveAttachmentClick,
-}) => {
+const AttachmentListWithDeletion = ({ attachments, onRemoveAttachmentClick }: Props) => {
     const intl = useIntl();
     return (
         <UnstyledList>

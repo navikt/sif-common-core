@@ -10,7 +10,7 @@ export interface Props {
     onFortsettSøknad: () => void;
 }
 
-const AvbrytSøknadDialog: React.FunctionComponent<Props> = (props) => {
+const AvbrytSøknadDialog = (props) => {
     const intl = useIntl();
     const { synlig, onFortsettSøknad, onAvbrytSøknad } = props;
     return (

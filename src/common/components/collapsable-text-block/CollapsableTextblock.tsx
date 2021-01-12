@@ -17,7 +17,7 @@ interface Props {
 
 const bem = bemUtils('collapsableTextBlock');
 
-const CollapsableTextBlock: React.FunctionComponent<Props> = ({ children, initialOpen, title }) => {
+const CollapsableTextBlock = ({ children, initialOpen, title }) => {
     const [isOpen, setIsOpen] = useState(initialOpen);
     const [contentId] = useState(guid());
 

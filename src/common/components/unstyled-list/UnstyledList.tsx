@@ -1,11 +1,13 @@
 import React from 'react';
-
 import bemHelper from '../../utils/bemUtils';
-
 import './unstyledList.less';
 
 const bem = bemHelper('unstyledList');
 
-const UnstyledList: React.FunctionComponent = ({ children }) => <ul className={bem.block}>{children}</ul>;
+interface Props {
+    children: React.ReactNode;
+}
+
+const UnstyledList = ({ children }: Props) => <ul className={bem.block}>{children}</ul>;
 
 export default UnstyledList;

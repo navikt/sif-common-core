@@ -2,8 +2,6 @@ import React from 'react';
 import PageIntro from './components/page-intro/PageIntro';
 import ItemList from '../common/components/item-list/ItemList';
 
-interface Props {}
-
 interface Item {
     name: string;
     id: string;
@@ -11,7 +9,7 @@ interface Item {
 
 const items: Item[] = [{ name: 'ABC', id: '1' }];
 
-const Intro: React.FunctionComponent<Props> = (props) => (
+const Intro = () => (
     <>
         <PageIntro title="SIF-common guide">
             Dette er starten på en enkel guide til komponenter og konsepter i SIF-common, og som kan brukes i

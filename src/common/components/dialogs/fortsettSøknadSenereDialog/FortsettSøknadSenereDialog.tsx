@@ -12,7 +12,7 @@ export interface Props {
     onFortsettSøknad: () => void;
 }
 
-const FortsettSøknadSenereDialog: React.FunctionComponent<Props> = (props) => {
+const FortsettSøknadSenereDialog = (props) => {
     const intl = useIntl();
     const { synlig, onFortsettSøknad, onFortsettSøknadSenere } = props;
     return (

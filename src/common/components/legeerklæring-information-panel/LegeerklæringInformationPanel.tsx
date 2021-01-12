@@ -3,11 +3,11 @@ import Veilederpanel from 'nav-frontend-veilederpanel';
 import LegeerklæringIcon from '../legeerklæring-icon/LegeerklæringWithArmIcon';
 import './legeerklæringInformationPanel.less';
 
-interface LegeerklæringInformationPanelProps {
+interface Props {
     text: string;
 }
 
-const LegeerklæringInformationPanel: React.FunctionComponent<LegeerklæringInformationPanelProps> = ({ text }) => (
+const LegeerklæringInformationPanel = ({ text }: Props) => (
     <Veilederpanel svg={<LegeerklæringIcon />} kompakt={true}>
         {text}
     </Veilederpanel>

@@ -14,7 +14,7 @@ interface Props {
 
 const bem = bemUtils('formSection');
 
-const FormSection: React.FunctionComponent<Props> = ({ title, titleTag, titleIcon, children }) => (
+const FormSection = ({ title, titleTag, titleIcon, children }) => (
     <section className={bem.block}>
         <Undertittel tag={titleTag} className={bem.element('title')}>
             {titleIcon && <span className={bem.element('titleIcon')}>{titleIcon}</span>}
