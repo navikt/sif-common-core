@@ -9,8 +9,10 @@ const dateRegExp = new RegExp(/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+
 export interface PersistenceInterface<StorageFormat, ResponseFormat = any> {
     update: (data: StorageFormat) => Promise<AxiosResponse<ResponseFormat>>;
     create: () => Promise<AxiosResponse<ResponseFormat>>;
-    /** deperacated */
-    persist: (data?: StorageFormat) => Promise<AxiosResponse<ResponseFormat>>;
+    /**
+     * @deprecated use create and update instead
+     */
+    persist?: (data?: StorageFormat) => Promise<AxiosResponse<ResponseFormat>>;
     rehydrate: () => Promise<AxiosResponse<StorageFormat>>;
     purge: () => Promise<AxiosResponse>;
 }
