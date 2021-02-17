@@ -7,7 +7,9 @@ dayjs.extend(customParseFormat);
 const dateRegExp = new RegExp(/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/);
 
 export interface PersistenceInterface<StorageFormat, ResponseFormat = any> {
-    update: (data?: StorageFormat) => Promise<AxiosResponse<ResponseFormat>>;
+    update: (data: StorageFormat) => Promise<AxiosResponse<ResponseFormat>>;
+    create: () => Promise<AxiosResponse<ResponseFormat>>;
+    /** deperacated */
     persist: (data?: StorageFormat) => Promise<AxiosResponse<ResponseFormat>>;
     rehydrate: () => Promise<AxiosResponse<StorageFormat>>;
     purge: () => Promise<AxiosResponse>;
@@ -50,9 +52,13 @@ export const storageParser = (storageResponse: string) => {
 
 function persistence<StorageFormat>({ requestConfig, url }: PersistenceConfig): PersistenceInterface<StorageFormat> {
     return {
-        update: (data?: StorageFormat) => {
+        update: (data: StorageFormat) => {
             return Axios.put(url, data, requestConfig);
         },
+        create: (data?: StorageFormat) => {
+            return Axios.post(url, data || {}, requestConfig);
+        },
+        /** deprecated */
         persist: (data?: StorageFormat) => {
             return Axios.post(url, data, requestConfig);
         },
