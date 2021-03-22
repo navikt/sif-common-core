@@ -22,9 +22,9 @@ const Intro = () => (
             getItemTitle={(item) => item.name}
             onDelete={() => null}
         />
-        <CounsellorPanel switchToPlakatOnSmallScreenSize={true}>
+        <CounsellorPanel switchToPlakatOnSmallScreenSize={true} switchToPlakatWidth={1200}>
             Dette er starten på en enkel guide til komponenter og konsepter i SIF-common, og som kan brukes i
-            søknadsapplikasjonene til kapittel 9. Vi legger det vi trenger, etter hvert som vi ser at vi trenger det :)
+            søknadsapplikasjo
         </CounsellorPanel>
     </>
 );

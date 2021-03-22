@@ -3,6 +3,7 @@ import { default as NFCounsellorPanel, VeilederpanelProps } from 'nav-frontend-v
 import Counsellor from '../counsellor/Counsellor';
 import './counsellorPanel.less';
 import useMedia from 'use-media';
+import bemUtils from '../../utils/bemUtils';
 
 type Props = Pick<VeilederpanelProps, 'kompakt' | 'type' | 'fargetema'> & {
     children: React.ReactNode;
@@ -11,6 +12,8 @@ type Props = Pick<VeilederpanelProps, 'kompakt' | 'type' | 'fargetema'> & {
     /** Default 500 */
     switchToPlakatWidth?: number;
 };
+
+const bem = bemUtils('counsellorPanel');
 
 const CounsellorPanel = ({
     children,
@@ -21,9 +24,11 @@ const CounsellorPanel = ({
 }: Props) => {
     const isNarrow = switchToPlakatOnSmallScreenSize ? useMedia({ maxWidth: `${switchToPlakatWidth}px` }) : false;
     return (
-        <NFCounsellorPanel type={isNarrow ? 'plakat' : type} kompakt={kompakt} svg={<Counsellor theme="light" />}>
-            {children}
-        </NFCounsellorPanel>
+        <div className={bem.classNames(bem.block, bem.modifierConditional('narrow', isNarrow))}>
+            <NFCounsellorPanel type={isNarrow ? 'plakat' : type} kompakt={kompakt} svg={<Counsellor theme="light" />}>
+                {children}
+            </NFCounsellorPanel>
+        </div>
     );
 };
 
