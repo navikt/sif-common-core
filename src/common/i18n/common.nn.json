@@ -1,7 +1,7 @@
 {
     "Ja": "Ja",
     "Nei": "Nei",
-    "VetIkke": "Eg er usikker.",
+    "VetIkke": "Eg er usikker",
 
     "hjelpetekst.skjul": "Lukk hjelpeteksten",
     "hjelpetekst.vis": "Vis hjelpeteksten",
@@ -23,12 +23,12 @@
     "timerOgMinutter": "{timer, plural, one {# time} other {# timar}} og {minutter, plural, one {# minutt} other {# minutt}}",
     "dager": "{dager, plural, one {# dag} other {# dagar}}",
 
-    "dataRangeValidation.form.validation.required": "Feltet er påkravd.",
-    "dataRangeValidation.form.validation.dateOutsideRange": "Første gyldige dato er {fom}, og siste gyldige dato er {tom}.",
-    "dataRangeValidation.form.validation.dateBeforeMinDate": "Første gyldige dato er {fom}.",
-    "dataRangeValidation.form.validation.dateAfterMaxDate": "Siste gyldige dato er {tom}.",
-    "dataRangeValidation.form.validation.fromDateAfterToDate": "Frå-dato må vere lik eller før til-dato.",
-    "dataRangeValidation.form.validation.toDateBeforeFromDate": "Til-dato må vere lik eller etter frå-dato.",
+    "dataRangeValidation.form.validation.required": "Feltet er påkravd",
+    "dataRangeValidation.form.validation.dateOutsideRange": "Første gyldige dato er {fom}, og siste gyldige dato er {tom}",
+    "dataRangeValidation.form.validation.dateBeforeMinDate": "Første gyldige dato er {fom}",
+    "dataRangeValidation.form.validation.dateAfterMaxDate": "Siste gyldige dato er {tom}",
+    "dataRangeValidation.form.validation.fromDateAfterToDate": "Frå-dato må vere lik eller før til-dato",
+    "dataRangeValidation.form.validation.toDateBeforeFromDate": "Til-dato må vere lik eller etter frå-dato",
 
     "avbrytSøknadDialog.avbrytSøknadLabel": "Ja, avbryt søknad",
     "avbrytSøknadDialog.fortsettSøknadLabel": "Nei",
