@@ -29,7 +29,6 @@ export const eøsAndEftaCountries = {
     SK: true,
     SI: true,
     ES: true,
-    GB: true,
     SE: true,
     CZ: true,
     DE: true,
