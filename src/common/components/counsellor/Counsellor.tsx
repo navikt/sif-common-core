@@ -9,7 +9,15 @@ interface Props {
 const bem = bemHelper('counsellor');
 const Counsellor = ({ theme }: Props) => (
     <div className={`${bem.block} ${bem.modifier(theme)}`}>
-        <svg version="1.1" x="0px" y="0px" viewBox="0 0 51.9 88.3" xmlSpace="preserve" focusable={false}>
+        <svg
+            version="1.1"
+            x="0px"
+            y="0px"
+            viewBox="0 0 51.9 88.3"
+            xmlSpace="preserve"
+            focusable={false}
+            role="presentation"
+            aria-hidden="true">
             <g>
                 <path
                     className="st0"

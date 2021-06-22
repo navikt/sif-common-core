@@ -8,8 +8,8 @@ interface Props {
 
 function VeilederSVG({ mood = 'happy' }: Props) {
     return (
-        <svg width={49} height={85} viewBox="0 0 49 85" focusable={false}>
-            <title>{'Group 2'}</title>
+        <svg width={49} height={85} viewBox="0 0 49 85" focusable={false} role="presentation" aria-hidden="true">
+            <title>{'NAV-veileder, illustrasjon'}</title>
             <g fillRule="nonzero" fill="none">
                 <path
                     d="M24.7 57.9c4.7 0 8.6-4.2 8.9-8.3v-2.2c3.9-2.8 7-6.4 8.5-12h.3c1 0 1.8-1 1.8-2.2v-6.7c0-.9-.4-1.6-1.1-2-.8-12.3-8.8-22-18.5-22-9.8 0-17.7 9.8-18.6 22.3-.5.4-.9 1.1-.9 1.9v6.7c0 1.2.8 2.2 1.8 2.2h.2c1.6 5.6 4.7 9.6 8.8 11.9l-.1 1.9c0 4.1 4 8.5 8.9 8.5z"
