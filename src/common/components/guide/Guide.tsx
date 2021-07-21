@@ -13,7 +13,7 @@ interface Props extends VeilederpanelProps {
 const bem = bemUtils('guide');
 
 const Guide = (props: Props) => {
-    const { fullHeight = false, fargetema = 'normal', ...rest } = props;
+    const { fullHeight = false, fargetema = 'egendefinertBorder', ...rest } = props;
     return (
         <div
             className={bem.classNames(
