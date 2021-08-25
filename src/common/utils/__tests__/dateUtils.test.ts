@@ -58,15 +58,16 @@ describe('dateUtils', () => {
         });
 
         it('should detect overlap when it exists', () => {
+            const date = new Date(2020, 0, 1);
             const ranges: DateRange[] = [
-                // ...validRanges,
+                ...validRanges,
                 {
-                    from: dayjs().add(1, 'day').toDate(),
-                    to: dayjs().add(1, 'week').toDate(),
+                    from: dayjs(date).add(1, 'day').toDate(),
+                    to: dayjs(date).add(1, 'week').toDate(),
                 },
                 {
-                    from: dayjs().add(1, 'week').toDate(),
-                    to: dayjs().add(2, 'week').toDate(),
+                    from: dayjs(date).add(1, 'week').toDate(),
+                    to: dayjs(date).add(2, 'week').toDate(),
                 },
             ];
             expect(dateRangesCollide(ranges)).toBeTruthy();
