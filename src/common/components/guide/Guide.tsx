@@ -1,4 +1,5 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 import Veilederpanel, { VeilederpanelProps } from 'nav-frontend-veilederpanel';
 import bemUtils from '../../utils/bemUtils';
 import './guide.less';
@@ -8,20 +9,37 @@ interface Props extends VeilederpanelProps {
     children: React.ReactNode;
     fullHeight?: boolean;
     fargetema?: Fargetema;
+    /** Endrer til plakat visning dersom under switchToPlakatWidth */
+    switchToPlakatOnSmallScreenSize?: boolean;
+    /** Default 500 */
+    switchToPlakatWidth?: number;
 }
 
 const bem = bemUtils('guide');
 
 const Guide = (props: Props) => {
-    const { fullHeight = false, fargetema = 'normal', ...rest } = props;
+    const {
+        fullHeight = false,
+        fargetema = 'normal',
+        switchToPlakatWidth,
+        switchToPlakatOnSmallScreenSize,
+        ...rest
+    } = props;
+    const isNarrow = switchToPlakatOnSmallScreenSize
+        ? useMediaQuery({
+              query: `(max-width: ${switchToPlakatWidth}px)`,
+          })
+        : false;
+
     return (
         <div
             className={bem.classNames(
                 bem.block,
                 bem.modifierConditional('fullHeight', fullHeight),
+                bem.modifierConditional('narrow', isNarrow),
                 bem.modifier(fargetema)
             )}>
-            <Veilederpanel {...rest} />
+            <Veilederpanel {...rest} type={isNarrow ? 'plakat' : rest.type} />
         </div>
     );
 };

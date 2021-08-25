@@ -3,9 +3,11 @@ import React from 'react';
 import Box from '../../common/components/box/Box';
 import ContentWithHeader from '../../common/components/content-with-header/ContentWithHeader';
 import CounsellorPanel from '../../common/components/counsellor-panel/CounsellorPanel';
+import Guide from '../../common/components/guide/Guide';
 import Knappelenke from '../../common/components/knappelenke/Knappelenke';
 import Page from '../../common/components/page/Page';
 import StepBanner from '../../common/components/step-banner/StepBanner';
+import VeilederSVG from '../../common/components/veileder-svg/VeilederSVG';
 
 const ComponentsView = () => {
     return (
@@ -20,6 +22,9 @@ const ComponentsView = () => {
             </AlertStripeFeil>
 
             <CounsellorPanel switchToPlakatOnSmallScreenSize={true}>Whoa Wha</CounsellorPanel>
+            <Guide kompakt={true} type="normal" svg={<VeilederSVG />}>
+                ABC
+            </Guide>
 
             <ContentWithHeader header={'En lenke som ser ut som en Knapp'}>
                 <Box margin={'l'} padBottom={'xl'}>
