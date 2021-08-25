@@ -51,7 +51,17 @@ body,
     .mainContent {
         padding: 4rem 4rem;
     }
+    @media screen and (max-width: 576px) {
+        .asideContent {
+            display: none;
+        }
+        .mainContent {
+            padding: 4rem 0rem;
+        }
+        padding-left: 0;
+    }
 }
+
 .leftMenu {
     position: sticky;
     .lenke {
