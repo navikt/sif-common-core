@@ -1,4 +1,5 @@
 @import '~nav-frontend-core/less/_variabler.less';
+@mobile-breakpoint: 576px;
 
 .buttonFocus() {
     outline: none;
@@ -88,5 +89,18 @@
                 .buttonFocus();
             }
         }
+    }
+}
+@media (max-width: @mobile-breakpoint) {
+    .languageToggle__wrapper {
+        min-width: initial;
+    }
+    .languageToggle__button {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        line-height: 1rem;
+    }
+    .languageToggle__button__flag {
+        line-height: 0;
     }
 }
