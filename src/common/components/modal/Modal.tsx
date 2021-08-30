@@ -1,7 +1,6 @@
 import React from 'react';
 import { default as NFModal } from 'nav-frontend-modal';
 import bemUtils from '../../utils/bemUtils';
-import './modal.less';
 
 export interface ModalProps {
     className?: string;

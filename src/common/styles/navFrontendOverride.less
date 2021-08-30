@@ -27,3 +27,52 @@
         }
     }
 }
+.alertstripe__tekst > p:first-child {
+    margin-top: 0;
+}
+
+.alertstripe__tekst > p:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 400px) {
+    .knapp,
+    .knapp--mini {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        white-space: initial;
+    }
+}
+@media screen and (max-width: 596px) {
+    .knapp,
+    .knapp--mini {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        white-space: initial;
+    }
+    .feiloppsummering {
+        padding: 0.5rem;
+        &__liste {
+            padding-left: 0.75rem;
+            li {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+    .nav-veilederpanel--plakat.nav-veilederpanel--kompakt {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .nav-veileder--flytende {
+        zoom: 0.6;
+        top: -3.25rem !important;
+    }
+    .nav-veilederpanel--plakat.nav-veilederpanel--kompakt {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 2rem;
+    }
+}
