@@ -19,8 +19,8 @@ const CounsellorPanel = ({
     children,
     kompakt = true,
     type = 'normal',
-    switchToPlakatOnSmallScreenSize,
-    switchToPlakatWidth = 450,
+    switchToPlakatOnSmallScreenSize = true,
+    switchToPlakatWidth = 576,
 }: Props) => {
     const isNarrow = switchToPlakatOnSmallScreenSize
         ? useMediaQuery({
