@@ -27,6 +27,7 @@ const CounsellorPanel = ({
               query: `(max-width: ${switchToPlakatWidth}px)`,
           })
         : false;
+
     return (
         <div className={bem.classNames(bem.block, bem.modifierConditional('narrow', isNarrow))}>
             <NFCounsellorPanel type={isNarrow ? 'plakat' : type} kompakt={kompakt} svg={<Counsellor theme="light" />}>

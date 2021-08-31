@@ -11,7 +11,7 @@ interface Props extends VeilederpanelProps {
     fargetema?: Fargetema;
     /** Endrer til plakat visning dersom under switchToPlakatWidth */
     switchToPlakatOnSmallScreenSize?: boolean;
-    /** Default 500 */
+    /** Default 576 */
     switchToPlakatWidth?: number;
 }
 
@@ -21,10 +21,12 @@ const Guide = (props: Props) => {
     const {
         fullHeight = false,
         fargetema = 'normal',
-        switchToPlakatWidth,
-        switchToPlakatOnSmallScreenSize,
+        kompakt = true,
+        switchToPlakatWidth = 576,
+        switchToPlakatOnSmallScreenSize = true,
         ...rest
     } = props;
+
     const isNarrow = switchToPlakatOnSmallScreenSize
         ? useMediaQuery({
               query: `(max-width: ${switchToPlakatWidth}px)`,
@@ -39,7 +41,7 @@ const Guide = (props: Props) => {
                 bem.modifierConditional('narrow', isNarrow),
                 bem.modifier(fargetema)
             )}>
-            <Veilederpanel {...rest} type={isNarrow ? 'plakat' : rest.type} />
+            <Veilederpanel {...rest} kompakt={kompakt} type={isNarrow ? 'plakat' : rest.type} />
         </div>
     );
 };

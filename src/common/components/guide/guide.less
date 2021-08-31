@@ -14,7 +14,8 @@
             background-color: @lightProfileColor;
         }
         svg {
-            top: 0;
+            position: relative;
+            top: 9px;
         }
     }
     &--feil {
@@ -44,6 +45,21 @@
             }
         }
     }
+    .nav-veilederpanel--plakat {
+        .counsellor {
+            display: flex;
+            align-items: flex-end;
+            width: 100%;
+            height: 100%;
+            svg {
+                top: 0;
+            }
+        }
+    }
+    .nav-veilederpanel--kompakt:not(.nav-veilederpanel--plakat) .nav-veileder {
+        left: -2.5rem;
+    }
+
     &--narrow {
         .nav-veilederpanel--plakat {
             min-height: initial;
