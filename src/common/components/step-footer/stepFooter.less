@@ -1,5 +1,4 @@
-@import '~nav-frontend-core/less/_variabler.less';
-
+@import '../../../../node_modules/nav-frontend-core/less/_variabler.less';
 @paddingSmall: 0.5rem;
 
 .stepFooter {
@@ -7,7 +6,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 2rem;
-    padding-top: 1rem;
+    padding-top: 2rem;
 
     &__divider {
         width: 100%;
@@ -17,7 +16,7 @@
         margin-right: 0;
     }
     &__avbrytSoknadLenke {
-        color: @navRod;
+        color: @redError;
         &:focus {
             color: white;
         }
@@ -25,11 +24,26 @@
     &__links {
         display: flex;
         align-items: center;
-        > * {
-            margin: 0.2rem 0.5rem;
-            &:first-child {
-                margin-left: 0;
-            }
+    }
+
+    &__dot:after {
+        content: ' \00b7';
+        font-size: 25px;
+        display: inline-block;
+        color: #c6c2bf;
+        margin: 0.2rem 0.5rem 0;
+    }
+
+    @media screen and (max-width: 600px) {
+        &__links {
+            flex-direction: column;
+        }
+        &__divider,
+        &__dot {
+            display: none;
+        }
+        .lenke {
+            margin-bottom: 0.5rem;
         }
     }
 }
