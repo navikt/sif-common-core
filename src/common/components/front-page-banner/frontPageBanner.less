@@ -1,6 +1,20 @@
 .frontPageBanner {
-  .counsellorWithSpeechBubble {
-    position: relative;
-    top: 20px;
-  }
+    .counsellorWithSpeechBubble {
+        position: relative;
+        top: 20px;
+
+        @media screen and (max-width: 576px) {
+            display: flex;
+            flex-direction: column;
+            .counsellor {
+                order: 1;
+                right: 0;
+            }
+            .speechBubble {
+                order: 2;
+                padding: 0.5rem;
+            }
+            top: 0;
+        }
+    }
 }
