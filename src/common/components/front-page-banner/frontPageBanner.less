@@ -2,10 +2,15 @@
     .counsellorWithSpeechBubble {
         position: relative;
         top: 20px;
-
-        @media screen and (max-width: 400px) {
+        margin-bottom: -3rem;
+    }
+    margin-bottom: 3rem;
+    @media screen and (max-width: 400px) {
+        margin-bottom: 1rem;
+        .counsellorWithSpeechBubble {
             display: flex;
             flex-direction: column;
+            margin-bottom: 0;
             .counsellor {
                 order: 1;
                 right: 0;
