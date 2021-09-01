@@ -26,6 +26,9 @@ function StepFooter({ onAvbrytOgFortsettSenere, onAvbrytOgSlett }: Props) {
                             <FormattedMessage id="steg.footer.fortsettSenere" />
                         </ActionLink>
                     )}
+                    {onAvbrytOgFortsettSenere && onAvbrytOgSlett && (
+                        <span className={bem.element('dot')} aria-hidden={true} />
+                    )}
                     {onAvbrytOgSlett && (
                         <ActionLink
                             className={bem.element('avbrytSoknadLenke')}

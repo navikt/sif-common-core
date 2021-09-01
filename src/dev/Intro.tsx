@@ -4,6 +4,7 @@ import ItemList from '../common/components/item-list/ItemList';
 import CounsellorPanel from '../common/components/counsellor-panel/CounsellorPanel';
 import FrontPageBanner from '../common/components/front-page-banner/FrontPageBanner';
 import Kvittering from '../common/components/kvittering/Kvittering';
+import StepFooter from '../common/components/step-footer/StepFooter';
 interface Item {
     name: string;
     id: string;
@@ -48,6 +49,8 @@ const Intro = () => (
             Dette er starten på en enkel guide til komponenter og konsepter i SIF-common, og som kan brukes i
             søknadsapplikasjo
         </CounsellorPanel>
+
+        <StepFooter onAvbrytOgFortsettSenere={() => null} onAvbrytOgSlett={() => null}></StepFooter>
     </>
 );
 
