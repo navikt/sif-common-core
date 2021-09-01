@@ -3,7 +3,7 @@
         position: relative;
         top: 20px;
 
-        @media screen and (max-width: 576px) {
+        @media screen and (max-width: 400px) {
             display: flex;
             flex-direction: column;
             .counsellor {
@@ -13,6 +13,9 @@
             .speechBubble {
                 order: 2;
                 padding: 0.5rem;
+                &__triangle {
+                    display: none;
+                }
             }
             top: 0;
         }
