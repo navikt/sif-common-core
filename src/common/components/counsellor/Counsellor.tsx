@@ -11,7 +11,7 @@ const Counsellor = ({ theme }: Props) => (
     <div className={`${bem.block} ${bem.modifier(theme)}`}>
         <svg
             width="90"
-            height="90"
+            height="80"
             viewBox="0 10 90 80"
             fill="none"
             xmlSpace="preserve"
