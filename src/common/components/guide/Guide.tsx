@@ -20,7 +20,7 @@ const bem = bemUtils('guide');
 const Guide = (props: Props) => {
     const {
         fullHeight = false,
-        fargetema = 'normal',
+        fargetema = 'egendefinertBorder',
         kompakt = true,
         switchToPlakatWidth = 576,
         switchToPlakatOnSmallScreenSize = true,

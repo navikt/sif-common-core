@@ -29,7 +29,12 @@ const CounsellorPanel = ({
         : false;
 
     return (
-        <div className={bem.classNames(bem.block, bem.modifierConditional('narrow', isNarrow))}>
+        <div
+            className={bem.classNames(
+                bem.block,
+                bem.modifierConditional('narrow', isNarrow),
+                bem.modifier('egendefinertBorder')
+            )}>
             <NFCounsellorPanel type={isNarrow ? 'plakat' : type} kompakt={kompakt} svg={<Counsellor theme="light" />}>
                 {children}
             </NFCounsellorPanel>
