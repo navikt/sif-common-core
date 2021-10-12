@@ -2,7 +2,7 @@ import React from 'react';
 import Lenke from 'nav-frontend-lenker';
 import { Attachment } from '../../types/Attachment';
 import bemHelper from '../../utils/bemUtils';
-import AttachmentIcon from './assets/ttachmentIcon';
+import AttachmentIcon from './AttachmentIcon';
 import './attachmentLabel.less';
 
 interface Props {
