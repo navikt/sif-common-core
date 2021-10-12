@@ -4,12 +4,6 @@ import React from 'react';
 import { Attachment } from '../../../types/Attachment';
 import AttachmentLabel from '../AttachmentLabel';
 
-jest.mock('./../../custom-svg/CustomSVG', () => () => {
-    // tslint:disable-next-line no-shadowed-variable
-    const React = require('react');
-    return <>svg</>;
-});
-
 describe('<AttachmentLabel />', () => {
     const attachment: Partial<Attachment> = {
         file: new File([''], 'filename', { type: 'text/png' }),
