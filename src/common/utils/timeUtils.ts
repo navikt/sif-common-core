@@ -12,8 +12,8 @@ export const iso8601DurationToTime = (duration: string): Partial<Time> | undefin
 
     return parts
         ? {
-              hours: parts.hours,
-              minutes: parts.minutes,
+              hours: `${parts.hours}`,
+              minutes: `${parts.minutes}`,
           }
         : undefined;
 };
@@ -22,8 +22,8 @@ export const decimalTimeToTime = (time: number): Time => {
     const hours = Math.floor(time);
     const minutes = Math.round(60 * (time % 1));
     return {
-        hours,
-        minutes,
+        hours: `${hours}`,
+        minutes: `${minutes}`,
     };
 };
 
@@ -40,7 +40,7 @@ export const isValidTime = (time: Partial<Time> | undefined): time is Time => {
         (typeof time.hours === 'string' || !isNaN(time.hours)) &&
         time.minutes !== undefined &&
         (typeof time.minutes === 'string' || !isNaN(time.minutes)) &&
-        time.minutes < 60
+        parseInt(time.minutes, 10) < 60
     );
 };
 
@@ -51,7 +51,7 @@ export const isValidTime = (time: Partial<Time> | undefined): time is Time => {
  * @param hideZeroMinutes do not print minutes if 0 minutes
  */
 export const timeToString = (time: Time, intl: IntlShape, hideZeroMinutes?: boolean): string => {
-    if (hideZeroMinutes && time.minutes === 0) {
+    if (hideZeroMinutes && time.minutes === '0') {
         return intlHelper(intl, 'timer', { timer: time.hours });
     }
     return intlHelper(intl, 'timerOgMinutter', { timer: time.hours, minutter: time.minutes });
