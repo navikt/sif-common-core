@@ -17,18 +17,8 @@ describe('timeUtils', () => {
         expect(timeToDecimalTime({ hours: 0, minutes: 30 })).toBe(0.5);
     });
 
-    it('should convert time with strings to decimal time', () => {
-        expect(timeToDecimalTime({ hours: '37', minutes: '30' })).toBe(37.5);
-        expect(timeToDecimalTime({ hours: '0', minutes: '30' })).toBe(0.5);
-    });
-
     it('should format time in Iso8601Duration format', () => {
         expect(timeToIso8601Duration({ hours: 10, minutes: 0 })).toEqual('PT10H0M');
         expect(timeToIso8601Duration({ hours: 0, minutes: 45 })).toEqual('PT0H45M');
-    });
-
-    it('should format time with strings in Iso8601Duration format', () => {
-        expect(timeToIso8601Duration({ hours: '10', minutes: '0' })).toEqual('PT10H0M');
-        expect(timeToIso8601Duration({ hours: '0', minutes: '45' })).toEqual('PT0H45M');
     });
 });
