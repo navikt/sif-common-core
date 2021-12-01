@@ -1,9 +1,6 @@
 import React from 'react';
-
-import { Undertittel } from 'nav-frontend-typografi';
-
+import { Systemtittel } from 'nav-frontend-typografi';
 import bemUtils from '../../utils/bemUtils';
-
 import './formSection.less';
 
 interface Props {
@@ -17,10 +14,10 @@ const bem = bemUtils('formSection');
 
 const FormSection = ({ title, titleTag, titleIcon, children }: Props) => (
     <section className={bem.block}>
-        <Undertittel tag={titleTag} className={bem.element('title')}>
+        <Systemtittel tag={titleTag} className={bem.element('title')}>
             {titleIcon && <span className={bem.element('titleIcon')}>{titleIcon}</span>}
             {title}
-        </Undertittel>
+        </Systemtittel>
         <div className={bem.element('content')}>{children}</div>
     </section>
 );
