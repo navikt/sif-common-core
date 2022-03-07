@@ -7,6 +7,7 @@ interface Props {
     sanityConfig: {
         projectId: string;
         dataset: string;
+        apiVersion?: string;
         token?: string;
     };
     contentRenderer: () => React.ReactNode;
