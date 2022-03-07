@@ -19,7 +19,7 @@
         "commit": "git-cz"
     },
     "dependencies": {
-        "@navikt/appstatus-react": "^2.0.1-beta.1",
+        "@navikt/appstatus-react": "^2.0.1-beta.2",
         "@navikt/fnrvalidator": "^1.1.4",
         "@types/react-modal": "^3.13.1",
         "classnames": "^2.3.1",
