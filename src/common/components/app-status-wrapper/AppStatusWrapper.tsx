@@ -1,14 +1,11 @@
 import React from 'react';
 import { useAppStatus, Status, StatusMessage } from '@navikt/appstatus-react';
 import LoadWrapper from '../load-wrapper/LoadWrapper';
+import { SanityConfig } from '@navikt/appstatus-react/lib/types';
 
 interface Props {
     applicationKey: string;
-    sanityConfig: {
-        projectId: string;
-        dataset: string;
-        token?: string;
-    };
+    sanityConfig: SanityConfig;
     contentRenderer: () => React.ReactNode;
     unavailableContentRenderer?: () => React.ReactNode;
 }
