@@ -1,6 +1,6 @@
 {
     "name": "@navikt/sif-common-core",
-    "version": "11.1.1",
+    "version": "11.2.0",
     "private": false,
     "scripts": {
         "build-dev-app": "craco build",
@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "@navikt/appstatus-react": "^3.1.0",
-        "@navikt/fnrvalidator": "^1.1.4",
+        "@navikt/fnrvalidator": "^1.2.0",
         "@types/react-modal": "^3.13.1",
         "classnames": "^2.3.1",
         "dayjs": "^1.10.7",
