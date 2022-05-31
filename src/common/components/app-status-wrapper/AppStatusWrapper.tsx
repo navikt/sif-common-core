@@ -1,7 +1,7 @@
+import { Status, StatusMessage, useAppStatus } from '@navikt/appstatus-react-ds';
+import { SanityConfig } from '@navikt/appstatus-react-ds/lib/types';
 import React from 'react';
-import { useAppStatus, Status, StatusMessage } from '@navikt/appstatus-react';
 import LoadWrapper from '../load-wrapper/LoadWrapper';
-import { SanityConfig } from '@navikt/appstatus-react/lib/types';
 
 interface Props {
     applicationKey: string;
