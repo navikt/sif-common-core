@@ -1,6 +1,6 @@
 {
     "name": "@navikt/sif-common-core",
-    "version": "12.0.0",
+    "version": "12.0.1",
     "private": false,
     "scripts": {
         "build-dev-app": "craco build",
@@ -78,7 +78,8 @@
         "axios": "0.21.x || ^0.24.x || ^0.25.x || ^0.26.x || ^0.27.x",
         "intl": "^1.2.x",
         "react": "^17.0.x",
-        "react-intl": "^5.18.x"
+        "react-intl": "^5.18.x",
+        "@navikt/ds-css": "^0.17.3"
     },
     "jest": {
         "testEnvironment": "node"
