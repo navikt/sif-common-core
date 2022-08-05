@@ -22,6 +22,7 @@
         "@navikt/appstatus-react-ds": "^1.1.0",
         "@navikt/fnrvalidator": "^1.3.0",
         "@types/react-modal": "^3.13.1",
+        "browser-image-compression": "^2.0.0",
         "classnames": "^2.3.1",
         "dayjs": "^1.11.2",
         "history": "^5.3.0",
@@ -75,11 +76,11 @@
         "react-router-dom": "^5.2.0"
     },
     "peerDependencies": {
+        "@navikt/ds-css": "^0.17.3",
         "axios": "0.21.x || ^0.24.x || ^0.25.x || ^0.26.x || ^0.27.x",
         "intl": "^1.2.x",
         "react": "^17.0.x",
-        "react-intl": "^5.18.x",
-        "@navikt/ds-css": "^0.17.3"
+        "react-intl": "^5.18.x"
     },
     "jest": {
         "testEnvironment": "node"
