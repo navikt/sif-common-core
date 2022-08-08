@@ -9,7 +9,6 @@ import { getLocaleFromSessionStorage, setLocaleInSessionStorage } from './common
 import AppIntlProvider from './dev/components/app-intl-provider/AppIntlProvider';
 import DevPage from './dev/DevPage';
 import './common/styles/globalStyles.less';
-import '@navikt/ds-css';
 
 const localeFromSessionStorage = getLocaleFromSessionStorage();
 
