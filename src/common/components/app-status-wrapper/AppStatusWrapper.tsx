@@ -1,5 +1,5 @@
-import { Status, StatusMessage, useAppStatus } from '@navikt/appstatus-react-ds';
-import { SanityConfig } from '@navikt/appstatus-react-ds/lib/types';
+import { Status, StatusMessage, useAppStatus } from '@navikt/appstatus-react';
+import { SanityConfig } from '@navikt/appstatus-react/lib/types';
 import React from 'react';
 import LoadWrapper from '../load-wrapper/LoadWrapper';
 
