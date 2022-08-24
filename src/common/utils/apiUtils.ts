@@ -14,9 +14,11 @@ export const getStartedSøknadRequestParam = (date?: Date): string | undefined =
     return date ? `startetSøknad=${date.toISOString()}` : undefined;
 };
 
-export default {
+const apiUtils = {
     isForbidden,
     isUnauthorized,
     isUserLoggedOut,
     getStartedSøknadRequestParam,
 };
+
+export default apiUtils;
