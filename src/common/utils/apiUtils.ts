@@ -13,3 +13,10 @@ export const isUserLoggedOut = (error: AxiosError): boolean => isUnauthorized(er
 export const getStartedSøknadRequestParam = (date?: Date): string | undefined => {
     return date ? `startetSøknad=${date.toISOString()}` : undefined;
 };
+
+export default {
+    isForbidden,
+    isUnauthorized,
+    isUserLoggedOut,
+    getStartedSøknadRequestParam,
+};
