@@ -3,38 +3,41 @@ import * as countries from 'i18n-iso-countries';
 countries.registerLocale(require('i18n-iso-countries/langs/nb.json'));
 countries.registerLocale(require('i18n-iso-countries/langs/nn.json'));
 
+/** Kilde:
+ * https://www.nav.no/no/person/flere-tema/arbeid-og-opphold-i-utlandet/relatert-informasjon/eos-landene
+ */
 export const eøsAndEftaCountries = {
-    NO: true,
-    BE: true,
-    BG: true,
-    DK: true,
-    EE: true,
-    FI: true,
-    FR: true,
-    GR: true,
-    IE: true,
-    IS: true,
-    IT: true,
-    HR: true,
-    CY: true,
-    LV: true,
-    LI: true,
-    LT: true,
-    LU: true,
-    MT: true,
-    NL: true,
-    PL: true,
-    PT: true,
-    RO: true,
-    SK: true,
-    SI: true,
-    ES: true,
-    SE: true,
-    CZ: true,
-    DE: true,
-    HU: true,
-    AT: true,
-    CH: true,
+    AT: true, // Østerrike
+    BE: true, // Belgia
+    BG: true, // Bulgaria
+    CH: true, // Sveits
+    CY: true, // Kypros
+    CZ: true, // Tsjekkia
+    DE: true, // Tyskland
+    DK: true, // Danmark
+    EE: true, // Estland
+    ES: true, // Spania
+    FI: true, // Finland
+    FR: true, // Frankrike
+    GR: true, // Hellas
+    HR: true, // Kroatia
+    HU: true, // Ungarn
+    IE: true, // Irland
+    IS: true, // Island
+    IT: true, // Italia
+    LI: true, // Liechtenstein
+    LT: true, // Litauen
+    LU: true, // Luxembourg
+    LV: true, // Latvia
+    MT: true, // Malta
+    NL: true, // Nederland
+    NO: true, // Norge
+    PL: true, // Polen
+    PT: true, // Portugal
+    RO: true, // Romania
+    SE: true, // Sverige
+    SI: true, // Slovenia
+    SK: true, // Slovakia
 };
 
 const ANTARTICA = 'AQ';
