@@ -79,7 +79,7 @@
         "axios": "^1.1.x",
         "intl": "^1.2.x",
         "react": "^17.0.x",
-        "react-intl": "^5.18.x || ^6.2.1"
+        "react-intl": "^5.18.x || ^6.2.x"
     },
     "jest": {
         "transformIgnorePatterns": [
