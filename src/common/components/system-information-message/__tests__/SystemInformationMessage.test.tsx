@@ -1,16 +1,15 @@
 import React from 'react';
-
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
 
 import SystemInformationMessage from '../SystemInformationMessage';
 
 const message = 'Some message';
 
 describe('<SystemInformationMessage />', () => {
-    it('renders a document title and children specified from props', () => {
-        const systemInformationMessage = shallow(<SystemInformationMessage message={message} />);
-        const messageEl = systemInformationMessage.find('div.systemInformationMessage');
+    test('renders a document title and children specified from props', () => {
+        const { container } = render(<SystemInformationMessage message={message} />);
+        const messageEl = container.getElementsByClassName('systemInformationMessage');
         expect(messageEl).toHaveLength(1);
-        expect(messageEl.children().contains(message)).toBe(true);
+        expect(container).toHaveTextContent(message);
     });
 });
