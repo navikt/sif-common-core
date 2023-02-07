@@ -3,9 +3,9 @@ import imageCompression from 'browser-image-compression';
 
 export const VALID_EXTENSIONS = ['.pdf', '.jpeg', '.jpg', '.png'];
 
-export const MAX_FILESIZE_FOR_UPLOAD = 9999999;
+export const MAX_FILESIZE_FOR_UPLOAD = 8 * 1024 * 1024; //8 mb max i apiet
 export const MAX_TOTAL_ATTACHMENT_SIZE_IN_MB = 24;
-export const MAX_TOTAL_ATTACHMENT_SIZE_BYTES = 1000 * 1000 * MAX_TOTAL_ATTACHMENT_SIZE_IN_MB;
+export const MAX_TOTAL_ATTACHMENT_SIZE_BYTES = 1024 * 1024 * MAX_TOTAL_ATTACHMENT_SIZE_IN_MB;
 
 export const getTotalSizeOfAttachments = (attachments: Attachment[]): number =>
     attachments
